@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41db025d-eaf0-4f6e-81b4-c1059cd6b671" name="Default Changelist" comment="Update daily">
-      <change afterPath="$PROJECT_DIR$/src/Backtracking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/QuickSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample$ListNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample$ListNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample$TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample$TreeNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LeetcodeSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetcodeSample.java" afterDir="false" />
-    </list>
+    <list default="true" id="41db025d-eaf0-4f6e-81b4-c1059cd6b671" name="Default Changelist" comment="Update daily" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +99,7 @@
       <workItem from="1609919203680" duration="61000" />
       <workItem from="1610167722457" duration="3788000" />
       <workItem from="1610234074262" duration="30961000" />
-      <workItem from="1610930686413" duration="5972000" />
+      <workItem from="1610930686413" duration="6583000" />
     </task>
     <servers />
   </component>
