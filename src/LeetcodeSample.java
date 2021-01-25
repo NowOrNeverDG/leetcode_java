@@ -1,12 +1,12 @@
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class LeetcodeSample {
 
     public static void main(String[] args) {
         int[] nums = new int[]{1,2,3};
-        subsets(nums);
+//        subsets(nums);
     }
-
     public class ListNode {
         int val;
         ListNode next;
@@ -23,7 +23,6 @@ public class LeetcodeSample {
             this.next = next;
         }
     }
-
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -75,7 +74,6 @@ public class LeetcodeSample {
         generateParenthesisBacktrack(ans, "", 0, 0, n);
         return ans;
     }
-
     public static void generateParenthesisBacktrack(List<String> ans, String cur, int open, int close, int max) {
         if (cur.length() == max * 2) {
             System.out.println("cur = " + cur + " ans = " + ans);
@@ -168,14 +166,12 @@ public class LeetcodeSample {
     //TIQ-347 QuickSort-Lomuto
     private static int[] key_arr_inorder;
     private static Map<Integer,Integer> num_freq_pair;
-
     public static void swap(int a, int b) {
         System.out.println(a + " , " + b);
         int tmp = key_arr_inorder[a];
         key_arr_inorder[a] = key_arr_inorder[b];
         key_arr_inorder[b] = tmp;
     }
-
     public static int partition(int left_index, int right_index) {
         int pivot_freq = num_freq_pair.get(key_arr_inorder[right_index]);//设最右的数字为pivot
         int store_index = left_index;
@@ -192,7 +188,6 @@ public class LeetcodeSample {
         swap(store_index,right_index);
         return store_index;
     }
-
     public static void quick_select(int left, int right) {
         //if one element array input
         if (left == right) return;
@@ -201,7 +196,6 @@ public class LeetcodeSample {
         quick_select(left, pivot_index);
         quick_select(pivot_index + 1, right);
     }
-
     public static int[] topKFrequent_QuickSort(int[] nums, int k) {
         //build hash map: character and how often it appears
         num_freq_pair = new HashMap<>();
@@ -226,7 +220,6 @@ public class LeetcodeSample {
     //TIQ-78 Backtracking
     private static List<List<Integer>> output = new ArrayList();
     private static int n, k;
-
     public static List<List<Integer>> subsets(int[] nums) {
         n = nums.length;
         for (k = 0; k < n+1; ++k) {
@@ -234,7 +227,6 @@ public class LeetcodeSample {
         }
         return output;
     }
-
     public static void backtrack(int first, ArrayList<Integer> curr, int[] nums) {
         //if the combination is done
         if (curr.size() == k) {
@@ -251,4 +243,115 @@ public class LeetcodeSample {
             curr.remove(curr.size()-1);
         }
     }
+
+    //TIQ-238
+    public int[] productExceptSelf(int[] nums) {
+        int first = nums[0];
+        int last = nums[nums.length-1];
+        int length = nums.length;
+        int[] arrL = new int[length];
+        arrL[0] = 1;
+        int[] arrR = new int[length];
+        arrR[length-1] = 1;
+
+        for (int i = 1; i < nums.length; i++) {
+            arrL[i] = nums[i-1]*arrL[i-1];
+            arrR[length-1-i] = nums[length-i] * arrR[length-i];
+        }
+        for (int i = 0; i < nums.length; i++) {
+            arrR[i] = arrL[i] * arrR[i];
+        }
+        return arrR;
+    }
+
+    //TIQ-230 BST Recursive
+    public static ArrayList<Integer> inorder (TreeNode root, ArrayList<Integer> arr) {//对bst按顺序排序
+        if (root == null) return arr;
+        inorder(root.left,arr);
+        arr.add(root.val);
+        inorder(root.right,arr);
+        return arr;
+    }
+    public int kthSmallest(TreeNode root, int t) {
+        ArrayList<Integer> arr = inorder(root, new ArrayList<Integer>());
+        return arr.get(t-1);
+    }
+    //BST Iterative
+    public int kthSmallest_Iterative(TreeNode root, int k) {
+        LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+
+        while (true) {
+            while (root != null) {
+                stack.add(root);
+                root = root.left;
+            }
+            if (--k == 0) return root.val;
+            root = root.right;
+        }
+    }
+
+    //TIQ-48 Transpose + Reverse = 90% rotation
+    // Reverse + Reverse = 180% rotation
+    // Reverse + Transepose = 270% rotation
+    public void rotate(int[][] matrix) {
+        int n = matrix.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                int temp = matrix[j][i];
+                matrix[j][i] = matrix[i][j];
+                matrix[i][j] = temp;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[i][n-j-1];
+                matrix[i][n-j-1] = temp;
+            }
+        }
+    }
+
+    //TIQ-49
+    public List<List<String>> groupAnagrams(String[] strs) {
+        if (strs.length == 0) return new ArrayList();
+        Map<String,List> ans = new HashMap<String, List>();
+        int[] count = new int[26];
+        for (String s : strs) {
+            Arrays.fill(count,0);//给count所有的值赋值0
+            for (char c : s.toCharArray()) count[c - 'a']++;//计数字母
+            StringBuilder sb = new StringBuilder("");//给str加#
+            for (int i = 0; i < 26; i++) {
+                sb.append('#');
+                sb.append(count[i]);
+            }
+            String key = sb.toString();
+            if (!ans.containsKey(key)) ans.put(key,new ArrayList());
+            ans.get(key).add(s);
+        }
+        return new ArrayList(ans.values());
+    }
+
+    public void moveZeroes(int[] nums) {
+        if (nums == null || nums.length == 0 ) return;
+        int j = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                int temp = nums[j];
+                nums[j] = nums[i];
+                nums[i] = temp;
+                j++;
+            }
+        }
+    }
+
+    //TIQ-122
+    public int maxProfit (int[] prices) {
+        int maxprofit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i-1]) maxprofit = maxprofit + (prices[i] - prices[i-1]);
+        }
+        return maxprofit;
+    }
+
+
 }
