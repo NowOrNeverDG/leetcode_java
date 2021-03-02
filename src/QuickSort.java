@@ -2,8 +2,8 @@ import java.util.*;
 
 public class QuickSort {
     public static void main(String[] args) {
-        int[] nums = new int[]{2,2,1,1,1,2,2};
-        majorityElement(nums);
+        int[] nums = new int[]{3,2,1,5,6,4};
+        quicksort_fkl(nums, 0, nums.length-1);
     }
 
     //For QuickSort-Lomuto
@@ -102,20 +102,33 @@ public class QuickSort {
         return key_arr[key_arr.length-1];
     }
 
-    //TIQ-215
-    private int partition_fkl(int[] nums, int start_index, int end_index ) {
-        int pivot = start_index, temp;
+    //TIQ-215 QuickSort-Hoare
+    public static int partition_fkl(int[] nums, int start_index, int end_index ) {
+        int pivot = start_index+1, temp;
         while (start_index < end_index) {
-            while (start_index <= end_index && nums[start_index] <= nums[pivot]) start_index++;
-            while (start_index <= end_index && nums[end_index] > nums[pivot]) end_index--;
+            while (start_index <= end_index && nums[start_index] <= nums[pivot]) start_index++;//找到比pivot大的
+            while (start_index <= end_index && nums[end_index] > nums[pivot]) end_index--;//找到比pivot小的
             if (start_index > end_index) break;
-            temp = nums[start_index];
+            temp = nums[start_index];//start和end互换
             nums[start_index] = nums[end_index];
             nums[end_index] = temp;
         }
-        
+        //end和pivot互换
+        temp = nums[end_index];
+        nums[end_index] = nums[pivot];
+        nums[pivot] = temp;
+        return end_index;
+    }
+    public static int[] quicksort_fkl (int[] nums, int start_index, int end_index) {
+        if (start_index != end_index) {
+            int pivot_index = partition_fkl(nums, start_index, end_index);
+            quicksort_fkl(nums, start_index, pivot_index-1);
+            quicksort_fkl(nums, pivot_index, end_index);
+        }
+        return nums;
     }
     public int findKthLargest(int[] nums, int k) {
-
+        quicksort_fkl(nums,0,nums.length-1);
+        return nums[nums.length-1-(k-1)];
     }
 }

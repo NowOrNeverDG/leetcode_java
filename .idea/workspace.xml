@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="41db025d-eaf0-4f6e-81b4-c1059cd6b671" name="Default Changelist" comment="Update daily">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample$ListNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample$ListNode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample$TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample$TreeNode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LeetcodeProject/QuickSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetcodeProject/QuickSort.class" afterDir="false" />
@@ -24,6 +25,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/NowOrNeverDG/LeetcodeSolution-Java.git" />
+        <option value="https://github.com/NowOrNeverDG/Leetcode_Example.git" />
+      </set>
+    </option>
   </component>
   <component name="ProjectId" id="1mJwoxKeayhENsMZw0q6m6X9sII" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -49,7 +58,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
-  <component name="RunManager" selected="Application.QuickSort">
+  <component name="RunManager" selected="Application.LeetcodeSample">
     <configuration name="Backtracking" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Backtracking" />
       <module name="LeetcodeProject" />
@@ -80,9 +89,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LeetcodeSample" />
         <item itemvalue="Application.QuickSort" />
         <item itemvalue="Application.Backtracking" />
-        <item itemvalue="Application.LeetcodeSample" />
         <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
@@ -116,6 +125,8 @@
       <workItem from="1610234074262" duration="30961000" />
       <workItem from="1610930686413" duration="26263000" />
       <workItem from="1611296962678" duration="11840000" />
+      <workItem from="1613207333653" duration="135000" />
+      <workItem from="1613963254805" duration="24272000" />
     </task>
     <servers />
   </component>
@@ -131,54 +142,69 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="307" y="64" key="CommitChangelistDialog2/0.25.1440.875@0.25.1440.875" timestamp="1610249662970" />
-    <state width="1398" height="329" key="GridCell.Tab.0.bottom" timestamp="1611296959217">
+    <state width="1398" height="329" key="GridCell.Tab.0.bottom" timestamp="1614648022691">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1398" height="223" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1609917605171" />
-    <state width="1398" height="329" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1611296959217" />
-    <state width="1398" height="329" key="GridCell.Tab.0.center" timestamp="1611296959217">
+    <state width="1398" height="329" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1614648022691" />
+    <state width="1398" height="329" key="GridCell.Tab.0.center" timestamp="1614648022686">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1398" height="223" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1609917605170" />
-    <state width="1398" height="329" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1611296959217" />
-    <state width="1398" height="329" key="GridCell.Tab.0.left" timestamp="1611296959217">
+    <state width="1398" height="329" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1614648022686" />
+    <state width="1398" height="329" key="GridCell.Tab.0.left" timestamp="1614648022686">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1398" height="223" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1609917605170" />
-    <state width="1398" height="329" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1611296959217" />
-    <state width="1398" height="329" key="GridCell.Tab.0.right" timestamp="1611296959217">
+    <state width="1398" height="329" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1614648022686" />
+    <state width="1398" height="329" key="GridCell.Tab.0.right" timestamp="1614648022690">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1398" height="223" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1609917605170" />
-    <state width="1398" height="329" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1611296959217" />
-    <state width="1398" height="329" key="GridCell.Tab.1.bottom" timestamp="1611296959218">
+    <state width="1398" height="329" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1614648022690" />
+    <state width="1398" height="329" key="GridCell.Tab.1.bottom" timestamp="1614648022694">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1398" height="276" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1609917605042" />
-    <state width="1398" height="329" key="GridCell.Tab.1.bottom/0.25.1440.875@0.25.1440.875" timestamp="1611296959218" />
-    <state width="1398" height="329" key="GridCell.Tab.1.center" timestamp="1611296959218">
+    <state width="1398" height="329" key="GridCell.Tab.1.bottom/0.25.1440.875@0.25.1440.875" timestamp="1614648022694" />
+    <state width="1398" height="329" key="GridCell.Tab.1.center" timestamp="1614648022693">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1398" height="276" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1609917605041" />
-    <state width="1398" height="329" key="GridCell.Tab.1.center/0.25.1440.875@0.25.1440.875" timestamp="1611296959218" />
-    <state width="1398" height="329" key="GridCell.Tab.1.left" timestamp="1611296959218">
+    <state width="1398" height="329" key="GridCell.Tab.1.center/0.25.1440.875@0.25.1440.875" timestamp="1614648022693" />
+    <state width="1398" height="329" key="GridCell.Tab.1.left" timestamp="1614648022693">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1398" height="276" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1609917605040" />
-    <state width="1398" height="329" key="GridCell.Tab.1.left/0.25.1440.875@0.25.1440.875" timestamp="1611296959218" />
-    <state width="1398" height="329" key="GridCell.Tab.1.right" timestamp="1611296959218">
+    <state width="1398" height="329" key="GridCell.Tab.1.left/0.25.1440.875@0.25.1440.875" timestamp="1614648022693" />
+    <state width="1398" height="329" key="GridCell.Tab.1.right" timestamp="1614648022694">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1398" height="276" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1609917605041" />
-    <state width="1398" height="329" key="GridCell.Tab.1.right/0.25.1440.875@0.25.1440.875" timestamp="1611296959218" />
-    <state x="732" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1610930688150">
+    <state width="1398" height="329" key="GridCell.Tab.1.right/0.25.1440.875@0.25.1440.875" timestamp="1614648022694" />
+    <state x="732" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1613963255470">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="732" y="281" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1609645899258" />
-    <state x="732" y="282" key="com.intellij.ide.util.TipDialog/0.25.1440.875@0.25.1440.875" timestamp="1610930688150" />
+    <state x="732" y="282" key="com.intellij.ide.util.TipDialog/0.25.1440.875@0.25.1440.875" timestamp="1613963255470" />
     <state x="505" y="384" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610938993136">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="505" y="384" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.875@0.25.1440.875" timestamp="1610938993136" />
+    <state x="269" y="204" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1611895561704">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="269" y="204" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.25.1440.875@0.25.1440.875" timestamp="1611895561704" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/QuickSort.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

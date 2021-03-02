@@ -1,11 +1,14 @@
 import java.lang.reflect.Array;
 import java.util.*;
 
+import static java.lang.Math.min;
+
 public class LeetcodeSample {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1,2,3};
-//        subsets(nums);
+        int[] nums = new int[]{3,5};
+        //findDuplicate(nums);
+        System.out.println(coinChange(nums,4));
     }
     public class ListNode {
         int val;
@@ -27,14 +30,10 @@ public class LeetcodeSample {
         int val;
         TreeNode left;
         TreeNode right;
-
-        TreeNode() {
-        }
-
+        TreeNode() {}
         TreeNode(int val) {
             this.val = val;
         }
-
         TreeNode(int val, TreeNode left, TreeNode right) {
             this.val = val;
             this.left = left;
@@ -330,7 +329,6 @@ public class LeetcodeSample {
         }
         return new ArrayList(ans.values());
     }
-
     public void moveZeroes(int[] nums) {
         if (nums == null || nums.length == 0 ) return;
         int j = 0;
@@ -353,5 +351,57 @@ public class LeetcodeSample {
         return maxprofit;
     }
 
+    //TIQ-242
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) return false;
+        int[] table = new int[26];
 
+        for (int i = 0; i < s.length(); i++) {
+            table[s.charAt(i) - 'a']++;
+        }
+        for (int i = 0; i < t.length(); i++) {
+            table[t.charAt(i) - 'a']--;
+            if (table[t.charAt(i) - 'a'] < 0) return false;
+        }
+        return true;
+    }
+
+    //
+    public static int findDuplicate(int[] nums) {
+        //find the intersection point of two runners.
+        int tortoise = nums[0];
+        int hare = nums[0];
+
+        do {
+            tortoise = nums[tortoise];
+            hare = nums[nums[hare]];
+        }while (tortoise != hare);
+
+        //find the entrance of the cycle
+        tortoise = nums[0];
+        while (tortoise != hare) {
+            tortoise = nums[tortoise];
+            hare = nums[hare];
+        }
+        return hare;
+    }
+
+    //322-coin Changed Dynamic Programming
+    public static int coinChange(int[] coins, int amount) {
+        int max = amount + 1;
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, max);
+        dp[0] = 0;
+
+        for (int i = 1; i <= amount; i++) {
+            for (int coin = 0; coin < coins.length; coin++) {
+                if (coins[coin] <= i) {
+                    dp[i] = Math.min(dp[i], dp[i - coins[coin]] + 1);
+                    System.out.println("dp[" + i + "] = " + dp[i]);
+                }
+            }
+        }
+        System.out.println(dp);
+        return dp[amount] > amount ? -1 : dp[amount];
+    }
 }
