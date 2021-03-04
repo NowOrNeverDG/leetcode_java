@@ -67,7 +67,7 @@ public class LeetcodeSample {
         return nodes;
     }
 
-    //TIQ-22 Backtracking
+    //TIQ-22 Iterating
     public static List<String> generateParenthesis(int n) {
         List<String> ans = new ArrayList<>();
         generateParenthesisBacktrack(ans, "", 0, 0, n);
@@ -377,6 +377,6 @@ public class LeetcodeSample {
         System.out.println(dp);
         return dp[amount] > amount ? -1 : dp[amount];
     }
-    
+
 
 }

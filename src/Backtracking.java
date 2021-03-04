@@ -7,27 +7,9 @@ public class Backtracking {
         int[] nums = new int[]{1,2,3};
     }
 
-    //22
-    public static List<String> generateParenthesis(int n) {
-        List<String> ans = new ArrayList<>();
-        generateParenthesisBacktrack(ans, "", 0, 0, n);
-        return ans;
-    }
-    public static void generateParenthesisBacktrack(List<String> ans, String cur, int open, int close, int max) {
-        if (cur.length() == max * 2) {
-            ans.add(cur);
-            return;
-        }
-
-        if (open < max) {
-            generateParenthesisBacktrack(ans, cur + '(', open + 1, close, max);
-        }
-        if (close < open) {
-            generateParenthesisBacktrack(ans, cur + ')', open, close + 1, max);
-        }
-    }
-
     //78 - 不要求长度的 返回所有可能的值
+    //Input: nums = [1,2,3]
+    //Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
     private static List<List<Integer>> output55 = new ArrayList();
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
@@ -49,7 +31,9 @@ public class Backtracking {
         }
     }
 
-    //51-backtracking
+    //51-N Queue
+    //Input: n = 4
+    //Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
     public List<List<String>> solveNQueens(int n) {
         char[][] board = new char[n][n];
         //棋盘所有位置标记 可用

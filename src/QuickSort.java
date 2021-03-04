@@ -102,7 +102,7 @@ public class QuickSort {
         return key_arr[key_arr.length-1];
     }
 
-    //TIQ-215 QuickSort-Hoare
+    //215 QuickSort-Hoare
     public static int partition_fkl(int[] nums, int start_index, int end_index ) {
         int pivot = start_index+1, temp;
         while (start_index < end_index) {
