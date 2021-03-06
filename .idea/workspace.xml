@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41db025d-eaf0-4f6e-81b4-c1059cd6b671" name="Default Changelist" comment="Update daily">
-      <change afterPath="$PROJECT_DIR$/src/BFS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DFS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LeetcodeProject/Backtracking.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetcodeProject/Backtracking.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample$TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample$TreeNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BFS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Backtracking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backtracking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LeetcodeSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetcodeSample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +59,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
-  <component name="RunManager" selected="Application.LeetcodeSample">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="Backtracking" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Backtracking" />
       <module name="LeetcodeProject" />
@@ -87,10 +90,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.LeetcodeSample" />
         <item itemvalue="Application.QuickSort" />
         <item itemvalue="Application.Backtracking" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -125,7 +128,7 @@
       <workItem from="1611296962678" duration="11840000" />
       <workItem from="1613207333653" duration="135000" />
       <workItem from="1613963254805" duration="24272000" />
-      <workItem from="1614656229819" duration="21157000" />
+      <workItem from="1614656229819" duration="42430000" />
     </task>
     <servers />
   </component>
@@ -137,10 +140,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Update daily" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="458" y="215" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1614826028253">
+    <state x="458" y="215" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1614839059397">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="458" y="215" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.25.1440.875@0.25.1440.875" timestamp="1614826028253" />
+    <state x="458" y="215" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.25.1440.875@0.25.1440.875" timestamp="1614839059397" />
     <state x="307" y="64" key="CommitChangelistDialog2" timestamp="1610249662970">
       <screen x="0" y="25" width="1440" height="875" />
     </state>

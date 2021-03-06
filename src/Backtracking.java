@@ -31,6 +31,7 @@ public class Backtracking {
         }
     }
 
+
     //51-N Queue
     //Input: n = 4
     //Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
