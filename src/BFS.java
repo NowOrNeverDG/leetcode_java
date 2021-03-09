@@ -133,7 +133,6 @@ public class BFS {
         q.add("0000");
         Set<String> visited = new HashSet<String>();
         visited.add("0000");
-
         while (!q.isEmpty()) {
             int size = q.size();
             for (int i = 0; i < size; i++) {

@@ -315,7 +315,7 @@ public class LeetcodeSample {
         }
     }
 
-    //TIQ-122
+    //122
     public int maxProfit (int[] prices) {
         int maxprofit = 0;
         for (int i = 1; i < prices.length; i++) {
@@ -324,7 +324,7 @@ public class LeetcodeSample {
         return maxprofit;
     }
 
-    //TIQ-242
+    //242
     public boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) return false;
         int[] table = new int[26];
@@ -339,7 +339,7 @@ public class LeetcodeSample {
         return true;
     }
 
-    //
+    //287-Floyd's algorithm
     public static int findDuplicate(int[] nums) {
         //find the intersection point of two runners.
         int tortoise = nums[0];
