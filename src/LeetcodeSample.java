@@ -6,9 +6,9 @@ import static java.lang.Math.min;
 public class LeetcodeSample {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{3,5};
+        int[] nums = new int[]{2,7,11,15};
         //findDuplicate(nums);
-        System.out.println(coinChange(nums,4));
+        System.out.println(twoSum(nums,9));
     }
     public class ListNode {
         int val;
@@ -378,5 +378,20 @@ public class LeetcodeSample {
         return dp[amount] > amount ? -1 : dp[amount];
     }
 
-
+    //1
+    //Input: nums = [2,7,11,15], target = 9
+    //Output: [0,1]
+    public static int[] twoSum(int[] nums, int target) {
+        Map<Integer,Integer> id_index = new HashMap<>();
+        int[] res = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            if (!id_index.containsValue(target - nums[i])) id_index.put(nums[i],i);
+            else {
+                res[0] = id_index.get(target - nums[i]);
+                res[1] = i;
+                return res;
+            }
+        }
+        return res;
+    }
 }

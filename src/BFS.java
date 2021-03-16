@@ -26,7 +26,6 @@ public class BFS {
             this.next = next;
         }
     }
-
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -107,7 +106,6 @@ public class BFS {
         }
         return -1;
     }
-
     private String plusone(String s, int j) {
         char[] ch = s.toCharArray();
         if (ch[j] == '9') {
@@ -117,15 +115,13 @@ public class BFS {
         }
         return new String(ch);
     }
-
     private String minusOne(String s, int j) {
         char[] ch = s.toCharArray();
         if (ch[j] == '0') ch[j] = '9';
         else ch[j]--;
         return new String(ch);
     }
-
-    public int openLockBFS(String[] deadends, String target) {
+    private int openLockBFS(String[] deadends, String target) {
         Set<String> deads = new HashSet<String>();
         for (String dead : deadends) deads.add(dead);
         int step = 0;
