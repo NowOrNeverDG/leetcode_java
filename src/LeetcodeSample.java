@@ -378,14 +378,14 @@ public class LeetcodeSample {
         return dp[amount] > amount ? -1 : dp[amount];
     }
 
-    //1
-    //Input: nums = [2,7,11,15], target = 9
+    //1-two sum
+    //Input: nums = [2,7,11,15], target = 9 只有一解
     //Output: [0,1]
     public static int[] twoSum(int[] nums, int target) {
         Map<Integer,Integer> id_index = new HashMap<>();
         int[] res = new int[2];
         for (int i = 0; i < nums.length; i++) {
-            if (!id_index.containsValue(target - nums[i])) id_index.put(nums[i],i);
+            if (!id_index.containsKey(target - nums[i])) id_index.put(nums[i],i);
             else {
                 res[0] = id_index.get(target - nums[i]);
                 res[1] = i;
@@ -394,4 +394,25 @@ public class LeetcodeSample {
         }
         return res;
     }
+
+    //1-two sum
+    //nums = [1,3,1,2,2,3], target = 4 可有多解
+    //Output: [[1,3],[2,2]]
+    public int twoSumTarget(int[] nums, int target) {
+        Arrays.sort(nums);
+        int left = 0, right = nums.length-1;
+
+        while (left < right) {
+            left = int[left]
+            if ()
+        }
+    }
+
+
+
+
+    //2-3sum
+    //Input: nums = [-1,0,1,2,-1,-4]
+    //Output: [[-1,-1,2],[-1,0,1]]
+
 }
