@@ -2,13 +2,14 @@ import java.lang.reflect.Array;
 import java.util.*;
 
 import static java.lang.Math.min;
+import static java.lang.Math.sin;
 
 public class LeetcodeSample {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2,7,11,15};
+        int[] nums = new int[]{1,3,1,2,2,3};
         //findDuplicate(nums);
-        System.out.println(twoSum(nums,9));
+        System.out.println(twoSumTarget(nums,4));
     }
     public class ListNode {
         int val;
@@ -398,21 +399,62 @@ public class LeetcodeSample {
     //1-two sum
     //nums = [1,3,1,2,2,3], target = 4 可有多解
     //Output: [[1,3],[2,2]]
-    public int twoSumTarget(int[] nums, int target) {
+    public static List<List<Integer>> twoSumTarget(int[] nums, int target) {
         Arrays.sort(nums);
         int left = 0, right = nums.length-1;
-
+        List<List<Integer>> res = new ArrayList<>();
         while (left < right) {
-            left = int[left]
-            if ()
+           int low = nums[left], high = nums[right];
+            if (low + high > target) high--;
+            else if (low + high < target) low++;
+            else {
+                List<Integer> ans = new ArrayList<>();
+                ans.add(low);
+                ans.add(high);
+                res.add(ans);
+                while (left < right && low == nums[left]) left++;
+                while (left < right && high == nums[right]) right--;
+            }
         }
+        return res;
     }
 
-
-
-
-    //2-3sum
+    //15-3sum
     //Input: nums = [-1,0,1,2,-1,-4]
     //Output: [[-1,-1,2],[-1,0,1]]
-
+    private List<List<Integer>> twoSumTargetFor3Sum(int[] nums, int target) {
+        Arrays.sort(nums);
+        int left = 0, right = nums.length-1;
+        List<List<Integer>> res = new ArrayList<>();
+        while (left < right) {
+            int low = nums[left], high = nums[right];
+            if (low + high > target) high--;
+            else if (low + high < target) low++;
+            else {
+                List<Integer> ans = new ArrayList<>();
+                ans.add(low);
+                ans.add(high);
+                res.add(ans);
+                while (left < right && low == nums[left]) left++;
+                while (left < right && high == nums[right]) right--;
+            }
+        }
+        return res;
+    }
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            int target = 0 - nums[i];
+            List<List<Integer>> single_res = twoSumTarget(nums, target);//[-1,2][0,1]
+            if (!single_res.isEmpty()) {
+                List<Integer> temp = new ArrayList<>();
+                for (int j = 0; j < single_res.size(); j++) {
+                    temp = single_res.get(j);
+                    temp.add(nums[i]);
+                }
+                res.add(temp);
+            }
+        }
+        return res;
+    }
 }
