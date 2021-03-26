@@ -1,8 +1,8 @@
-import java.lang.reflect.Array;
+import com.sun.source.tree.Tree;
+
 import java.util.*;
 
 import static java.lang.Math.min;
-import static java.lang.Math.sin;
 
 public class LeetcodeSample {
 
@@ -27,7 +27,7 @@ public class LeetcodeSample {
             this.next = next;
         }
     }
-    public static class TreeNode {
+    public class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -41,6 +41,25 @@ public class LeetcodeSample {
             this.right = right;
         }
     }
+    public class Node {
+        public int val;
+        public Node left;
+        public Node right;
+        public Node next;
+
+        public Node() {}
+
+        public Node(int _val) {
+            val = _val;
+        }
+
+        public Node(int _val, Node _left, Node _right, Node _next) {
+            val = _val;
+            left = _left;
+            right = _right;
+            next = _next;
+        }
+    };
 
     //TIQ-94 Morris Algorithm
     public List<Integer> inorderTraversal(TreeNode root) {
@@ -457,4 +476,37 @@ public class LeetcodeSample {
         }
         return res;
     }
+
+    //116
+    public Node connect(Node root) {
+        if (root == null) return  null;
+        connectTwoNode(root.left,root.right);
+        return root;
+    }
+    private void connectTwoNode(Node node1, Node node2) {
+        if (node1 == null || node2 == null) { return; }
+        node1.next = node2;
+        connectTwoNode(node1.left,node1.right);
+        connectTwoNode(node2.left,node2.right);
+        connectTwoNode(node1.right,node2.left);
+    }
+
+    //114
+    public TreeNode flatten(TreeNode root) {
+        if (root == null) return root;
+
+        TreeNode left = flatten(root.left);
+        TreeNode right = flatten(root.right);
+
+        if (left == null && right == null) return root;
+        if (left == null) return right;
+        if (right == null) {root.right = root.left; root.left = null; return left;}
+
+        TreeNode tempRight = root.right;
+        root.right = root.left;
+        root.left = null;
+        left.right = tempRight;
+        return tempRight;
+    }
+
 }
