@@ -492,21 +492,14 @@ public class LeetcodeSample {
     }
 
     //114
-    public TreeNode flatten(TreeNode root) {
-        if (root == null) return root;
+    private TreeNode prev114 = null;
+    public void flatten(TreeNode root) {
+        if(root == null) return;
 
-        TreeNode left = flatten(root.left);
-        TreeNode right = flatten(root.right);
-
-        if (left == null && right == null) return root;
-        if (left == null) return right;
-        if (right == null) {root.right = root.left; root.left = null; return left;}
-
-        TreeNode tempRight = root.right;
-        root.right = root.left;
+        flatten(root.right);
+        flatten(root.left);
+        root.right = prev114;
         root.left = null;
-        left.right = tempRight;
-        return tempRight;
+        prev114 = root;
     }
-
 }

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41db025d-eaf0-4f6e-81b4-c1059cd6b671" name="Default Changelist" comment="Update daily">
+      <change afterPath="$PROJECT_DIR$/src/TypicalTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LeetcodeSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetcodeSample.java" afterDir="false" />
     </list>
@@ -136,7 +137,7 @@
       <workItem from="1615592182195" duration="16775000" />
       <workItem from="1615844232788" duration="13422000" />
       <workItem from="1616094573179" duration="6679000" />
-      <workItem from="1616722995370" duration="2890000" />
+      <workItem from="1616722995370" duration="13748000" />
     </task>
     <servers />
   </component>
@@ -223,6 +224,10 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="269" y="204" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.25.1440.875@0.25.1440.875" timestamp="1611895561704" />
+    <state x="385" y="214" width="670" height="676" key="search.everywhere.popup" timestamp="1616797083321">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="385" y="214" width="670" height="676" key="search.everywhere.popup/0.25.1440.875/1440.25.1116.731@0.25.1440.875" timestamp="1616797083321" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
