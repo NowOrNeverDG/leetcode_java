@@ -1,5 +1,11 @@
 import com.sun.source.tree.Tree;
 
+import javax.swing.*;
+import java.sql.ClientInfoStatus;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class TypicalTree {
     public static void main(String[] args) {
 
@@ -120,11 +126,148 @@ public class TypicalTree {
     }
 
     //112-Path Sum
+    //Input: root = [1,2,3], targetSum = 5
+    //Output: false
     public boolean hasPathSum(TreeNode root, int targetSum) {
         if (root == null) return false;
-        if (root.left == null && root.right == null && root.val == targetSum) return true;
-        return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
+        if (root.left == null&&root.right == null&&targetSum == root.val) return true;
+
+        boolean left = hasPathSum(root.left, targetSum - root.val);
+        boolean right = hasPathSum(root.right, targetSum - root.val);
+        return left||right;
     }
+
+    //114-Flatten Binary Tree to Linked List
+    //Input: root = [1,2,5,3,4,null,6]
+    //Output: [1,null,2,null,3,null,4,null,5,null,6]
+    public void flatten(LeetcodeSample.TreeNode root) {
+        if(root == null) return;
+
+        flatten(root.right);
+        flatten(root.left);
+
+        LeetcodeSample.TreeNode left = root.left;
+        LeetcodeSample.TreeNode right = root.right;
+
+        root.right = root.left;
+        root.left = null;
+
+        LeetcodeSample.TreeNode temp = root;
+        while (temp.right != null) {
+            temp = temp.right;
+        }
+        temp.right = right;
+    }
+
+    //116-Populating Next Right Pointers in Each Node
+    //Input: root = [1,2,3,4,5,6,7]
+    //Output: [1,#,2,3,#,4,5,6,7,#]
+    public LeetcodeSample.Node connect(LeetcodeSample.Node root) {
+        if (root == null) return  null;
+        connectTwoNode(root.left,root.right);
+        return root;
+    }
+    private void connectTwoNode(LeetcodeSample.Node node1, LeetcodeSample.Node node2) {
+        if (node1 == null || node2 == null) { return; }
+        node1.next = node2;
+        connectTwoNode(node1.left,node1.right);
+        connectTwoNode(node2.left,node2.right);
+        connectTwoNode(node1.right,node2.left);
+    }
+
+    //572-Subtree of Another Tree
+    public boolean isSubtree(TreeNode s, TreeNode t) {
+        if (s == null) return false;
+        return helper572(s,t)||isSubtree(s.left,t)||isSubtree(s.right,t);
+    }
+    public boolean helper572(TreeNode s, TreeNode t) {
+        if (s== null&&t==null) return true;
+        if (s==null ||t==null) return false;
+        if (s.val != t.val) return false;
+        return helper572(s.left,t.left)&&helper572(s.right,t.right);
+    }
+
+    //101-Symmetric Tree
+    //Input: root = [1,2,2,3,4,4,3]
+    //Output: true
+    public boolean isSymmetric(TreeNode root) {
+        if (root == null) return true;
+        return helper101(root.left,root.right);
+    }
+    public boolean helper101(TreeNode left, TreeNode right) {
+        if (left == null&&right==null) return true;
+        if (left == null||right==null) return false;
+        if (left.val != right.val) return false;
+        return helper101(left.left,left.right)&&helper101(right.left,right.right);
+    }
+
+    //111-Minimum Depth of Binary Tree
+    public int minDepth3(TreeNode root) {
+        if (root == null) return 0;
+        int left = minDepth3(root.left);
+        int right = minDepth3(root.right);
+        if (left == 0 || right == 0) return left+right+1;
+        return Math.min(left,right)+1;
+    }
+
+    //404-Sum of Left Leaves
+    public int sumOfLeftLeaves(TreeNode root) {
+        if (root == null) return 0;
+        if (isLeaf404(root.left)) return root.left.val + sumOfLeftLeaves(root.right);
+        return sumOfLeftLeaves(root.right) + sumOfLeftLeaves(root.left);
+    }
+    private boolean isLeaf404(TreeNode root) {
+        if (root == null) return false;
+        if (root.left == null&&root.right == null) return true;
+        return false;
+    }
+
+    //687-Longest Univalue Path
+    //Input: root = [5,4,5,1,1,5]
+    //Output: 2
+    public int longestUnivaluePath(TreeNode root) {
+        if (root == null) return 0;
+        return Math.max(helper687(root.left),helper687(root.right));
+    }
+    public int helper687(TreeNode root) {
+        if (root == null) return 0;
+        if (root.val == root.left.val) return helper687(root.left)+1;
+        if (root.val == root.right.val) return helper687(root.right)+1;
+
+        List<String> list = new ArrayList<String>();
+        list.add("rose");
+        list.add("pop");
+        return Math.max(helper687(root.left),helper687(root.right));
+
+    }
+
+    public static class Builder {
+        private String name;
+        private String address;
+        private String contact;
+        private int sizeOfEmployee;
+        private Date createdTime;
+
+        public void Builder() {}
+        public Builder name(String name) { map.put("name",this.name); return this;}
+        public Builder address(String address) { map.put("address", this.address);return this;}
+        public Builder createdTime(Date createdTime) { map.put("createdTime", this.createdTime);return this;}
+        public Builder sizeOfEmployee(int sizeOfEmployee) { map.put("createdTime", this.createdTime);return this;}
+        public Builder contact(String contract) {map.put("contract", this.contact);return this;}
+
+    }
+
+    private Company(Builder builder) {
+        this.name = builder.name;
+        this.address = builder.address;
+        this.createdTime = builder.createdTime;
+        this.sizeOfEmployee = builder.sizeOfEmployee;
+        this.contact = builder.contact;
+    }
+    public String build() {
+        return new Company(this).toString;
+    }
+
 
 }
 

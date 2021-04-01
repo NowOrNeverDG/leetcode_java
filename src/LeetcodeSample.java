@@ -477,7 +477,7 @@ public class LeetcodeSample {
         return res;
     }
 
-    //116
+    //116-Populating Next Right Pointers in Each Node
     public Node connect(Node root) {
         if (root == null) return  null;
         connectTwoNode(root.left,root.right);
@@ -489,18 +489,6 @@ public class LeetcodeSample {
         connectTwoNode(node1.left,node1.right);
         connectTwoNode(node2.left,node2.right);
         connectTwoNode(node1.right,node2.left);
-    }
-
-    //114
-    private TreeNode prev114 = null;
-    public void flatten(TreeNode root) {
-        if(root == null) return;
-
-        flatten(root.right);
-        flatten(root.left);
-        root.right = prev114;
-        root.left = null;
-        prev114 = root;
     }
 
 

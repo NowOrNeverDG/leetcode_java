@@ -4,6 +4,7 @@
     <list default="true" id="41db025d-eaf0-4f6e-81b4-c1059cd6b671" name="Default Changelist" comment="Update daily">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LeetcodeSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetcodeSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TypicalTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TypicalTree.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +138,7 @@
       <workItem from="1615844232788" duration="13422000" />
       <workItem from="1616094573179" duration="6679000" />
       <workItem from="1616722995370" duration="13748000" />
-      <workItem from="1617160457778" duration="2375000" />
+      <workItem from="1617160457778" duration="19316000" />
     </task>
     <servers />
   </component>
@@ -236,11 +237,6 @@
           <url>file://$PROJECT_DIR$/src/QuickSort.java</url>
           <line>6</line>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/DoublePoint.java</url>
-          <line>138</line>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
