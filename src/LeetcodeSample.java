@@ -7,10 +7,13 @@ import static java.lang.Math.min;
 public class LeetcodeSample {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1,3,1,2,2,3};
+        int[] nums1 = new int[]{4,1,2};
+        int[] nums2 = new int[]{1,3,4,2};
+
         //findDuplicate(nums);
-        System.out.println(twoSumTarget(nums,4));
+        LeetcodeSample.nextGreaterElementI(nums1,nums2);
     }
+
     public class ListNode {
         int val;
         ListNode next;
@@ -360,26 +363,31 @@ public class LeetcodeSample {
     }
 
     //287-Floyd's algorithm
-    public static int findDuplicate(int[] nums) {
-        //find the intersection point of two runners.
-        int tortoise = nums[0];
-        int hare = nums[0];
-
-        do {
-            tortoise = nums[tortoise];
-            hare = nums[nums[hare]];
-        }while (tortoise != hare);
-
-        //find the entrance of the cycle
-        tortoise = nums[0];
-        while (tortoise != hare) {
-            tortoise = nums[tortoise];
-            hare = nums[hare];
-        }
-        return hare;
-    }
+//    public static int findDuplicate(int[] nums) {
+//        //find the intersection point of two runners.
+//        int tortoise = nums[0];
+//        int hare = nums[0];
+//
+//        do {
+//            tortoise = nums[tortoise];
+//            hare = nums[nums[hare]];
+//        }while (tortoise != hare);
+//
+//        //find the entrance of the cycle
+//        tortoise = nums[0];
+//        while (tortoise != hare) {
+//            tortoise = nums[tortoise];
+//            hare = nums[hare];
+//        }
+//        return hare;
+//    }
 
     //322-coin Changed Dynamic Programming
+    //You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
+    //Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
+    //Input: coins = [1,2,5], amount = 11
+    //Output: 3
+    //Explanation: 11 = 5 + 5 + 1
     public static int coinChange(int[] coins, int amount) {
         int max = amount + 1;
         int[] dp = new int[amount + 1];
@@ -399,6 +407,7 @@ public class LeetcodeSample {
     }
 
     //1-two sum
+    //Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
     //Input: nums = [2,7,11,15], target = 9 只有一解
     //Output: [0,1]
     public static int[] twoSum(int[] nums, int target) {
@@ -439,6 +448,7 @@ public class LeetcodeSample {
     }
 
     //15-3sum
+    //Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
     //Input: nums = [-1,0,1,2,-1,-4]
     //Output: [[-1,-1,2],[-1,0,1]]
     private List<List<Integer>> twoSumTargetFor3Sum(int[] nums, int target) {
@@ -478,6 +488,8 @@ public class LeetcodeSample {
     }
 
     //116-Populating Next Right Pointers in Each Node
+    //You are given a perfect binary tree where all leaves are on the same level, and every parent has two children. The binary tree has the following definition:
+    //Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
     public Node connect(Node root) {
         if (root == null) return  null;
         connectTwoNode(root.left,root.right);
@@ -490,6 +502,183 @@ public class LeetcodeSample {
         connectTwoNode(node2.left,node2.right);
         connectTwoNode(node1.right,node2.left);
     }
+
+    //54. Spiral Matrix
+    //Given an m x n matrix, return all elements of the matrix in spiral order.
+    //Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+    //Output: [1,2,3,6,9,8,7,4,5]
+    public List<Integer> spiralOrder(int[][] matrix) {
+        int row = matrix.length;
+        int column = matrix[0].length;
+        List<Integer> ans = new ArrayList<Integer>();
+        int rowBegin = 0;
+        int rowEnd = row -1;
+        int columnBegin = 0;
+        int columnEnd = column -1;
+        while(rowBegin<=rowEnd&& columnBegin<=columnEnd) {
+            for (int i = columnBegin; i<= columnEnd&&ans.size()<row*column; i++) {ans.add(matrix[rowBegin][i]);}
+            rowBegin++;
+            for (int i = rowBegin; i <= rowEnd&&ans.size()<row*column; i++) {ans.add(matrix[i][columnEnd]);}
+            columnEnd--;
+            for (int i = columnEnd; i >= columnBegin&&ans.size()<row*column; i--) {ans.add(matrix[rowEnd][i]);}
+            rowEnd--;
+            for (int i = rowEnd; i >= rowBegin&&ans.size()<row*column; i--) {ans.add(matrix[i][columnBegin]);}
+            columnBegin++;
+        }
+        return ans;
+    }
+
+    //287-Find the Duplicate Number
+    //Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+    //Input: nums = [1,3,4,2,2]
+    //Output: 2
+    public int findDuplicate(int[] nums) {
+        HashSet set = new HashSet();
+        int ans;
+        for (int i = 0; i < nums.length; i++) {
+            if (set.contains(nums[i])) return nums[i];
+            set.add(nums[i]);
+        }
+        return -1;
+    }
+
+    //394-Decode String
+    //Given an encoded string, return its decoded string.
+    //The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times. Note that k is guaranteed to be a positive integer.
+    //You may assume that the input string is always valid; No extra white spaces, square brackets are well-formed, etc.
+    //Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k. For example, there won't be input like 3a or 2[4].
+    //Input: s = "3[a]2[bc]"
+    //Output: "aaabcbc"
+
+
+    //496-Next Greater Element I
+    //You are given two integer arrays nums1 and nums2 both of unique elements, where nums1 is a subset of nums2.
+    //Find all the next greater numbers for nums1's elements in the corresponding places of nums2.
+    //The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, return -1 for this number.
+    //Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
+    //Output: [-1,3,-1]
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        int[] ans = new int[nums1.length];
+        for (int i = 0; i<nums1.length;i++) {
+            int key = -1;
+            boolean swh = false;
+            for (int j = 0; j< nums2.length;j++) {
+                if (nums2[j] == nums1[i]) swh = true;
+                if (swh == true) {
+                    if (nums2[j] > nums1[i]) {key = nums2[j]; break;}
+                }
+            }
+            ans[i] = key;
+        }
+        return ans;
+    }
+    public static int[] nextGreaterElementI(int[] nums1, int[] nums2) {
+        int n = nums2.length;
+        Deque<Integer> stack = new ArrayDeque<Integer>();
+        Map<Integer,Integer> map = new HashMap<>();
+
+        for (int i = n-1; i>=0;i--) {
+            while (!stack.isEmpty()&&nums2[i]>stack.peek()){
+                stack.pop();
+            }
+            map.put(nums2[i],stack.isEmpty()? -1:stack.peek());
+            stack.push(nums2[i]);
+        }
+        int[] ans = new int[nums1.length];
+        for (int i = 0; i < nums1.length; i++) {
+            ans[i] = map.get(nums1[i]);
+        }
+        return ans;
+    }
+
+    //5-Longest Palindromic Substring
+    //Given a string s, return the longest palindromic substring in s.
+    //Input: s = "babad"
+    //Output: "bab"
+    private int lo5, maxLen5;
+    public String longestPalindrome(String s) {
+        int len = s.length();
+        if (len < 2) return s;
+        String res = "";
+        for (int i = 0; i < len - 1; i++) {
+            String s1 = palindrome5(s, i, i);
+            String s2 = palindrome5(s, i, i + 1);
+
+            res = res.length() > s1.length() ? res : s1;
+            res = res.length() > s2.length() ? res : s2;
+        }
+        return res;
+    }
+    private String palindrome5(String s, int j,int k) {
+        while (j>=0&&k<s.length()&&s.charAt(j)==s.charAt(k)){
+            j--;
+            k++;
+        }
+        return s.substring(j,k+1);
+    }
+
+    //409-Longest Palindrome
+    //Given a string s which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built with those letters.
+    //Input: s = "abccccdd"
+    //Output: 7
+    public int longestPalindrome(String s) {
+        HashSet<Character> set = new HashSet();
+        int count = 0;
+        for (int i=0; i<s.length();i++) {
+            if (set.contains(s.charAt(i)) ) {
+                set.remove(s.charAt(i));
+                count++;
+            }else {
+                set.add(s.charAt(i));
+            }
+        }
+        return set.isEmpty()? count*2:count*2+1;
+    }
+
+    //125-Valid Palindrome
+    //Given a string s, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
+    //Input: s = "A man, a plan, a canal: Panama"
+    //Output: true
+    public boolean isPalindrome(String s) {
+        int left = 0, right = s.length()-1;
+        char[] c_str = s.toCharArray();
+
+        while (left<right) {
+            if (!Character.isLetterOrDigit(c_str[left])) left++;
+            else if (!Character.isLetterOrDigit(c_str[right])) right--;
+            else {
+                if (Character.toLowerCase(c_str[left]) != Character.toLowerCase(c_str[right])) return false;
+                left++;
+                right--;
+            }
+        }
+        return true;
+    }
+
+    //516-Longest Palindromic Subsequence
+    //Given a string s, find the longest palindromic subsequence's length in s.
+    //A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.
+    public int longestPalindromeSubseq(String s) {
+        int[][] dp = new int[s.length()][s.length()];
+        int left = 0, right = s.length()-1;
+        dp[left][right] = 1;
+        while (left<right) {
+            if (s.charAt(left) == s.charAt(right)) {
+                dp[left++][right--] = dp[left][right]+2;
+            }
+        }
+        return 0;
+    }
+
+    //2-Add Two Numbers
+    //You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+    //Input: l1 = [2,4,3], l2 = [5,6,4]
+    //Output: [7,0,8]
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+
+    }
+
+
 
 
 }

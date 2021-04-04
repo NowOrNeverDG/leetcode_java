@@ -238,35 +238,9 @@ public class TypicalTree {
         list.add("rose");
         list.add("pop");
         return Math.max(helper687(root.left),helper687(root.right));
-
     }
 
-    public static class Builder {
-        private String name;
-        private String address;
-        private String contact;
-        private int sizeOfEmployee;
-        private Date createdTime;
 
-        public void Builder() {}
-        public Builder name(String name) { map.put("name",this.name); return this;}
-        public Builder address(String address) { map.put("address", this.address);return this;}
-        public Builder createdTime(Date createdTime) { map.put("createdTime", this.createdTime);return this;}
-        public Builder sizeOfEmployee(int sizeOfEmployee) { map.put("createdTime", this.createdTime);return this;}
-        public Builder contact(String contract) {map.put("contract", this.contact);return this;}
-
-    }
-
-    private Company(Builder builder) {
-        this.name = builder.name;
-        this.address = builder.address;
-        this.createdTime = builder.createdTime;
-        this.sizeOfEmployee = builder.sizeOfEmployee;
-        this.contact = builder.contact;
-    }
-    public String build() {
-        return new Company(this).toString;
-    }
 
 
 }
