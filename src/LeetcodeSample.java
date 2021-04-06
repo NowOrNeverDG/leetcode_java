@@ -10,21 +10,17 @@ public class LeetcodeSample {
         int[] nums1 = new int[]{4,1,2};
         int[] nums2 = new int[]{1,3,4,2};
 
-        //findDuplicate(nums);
-        LeetcodeSample.nextGreaterElementI(nums1,nums2);
+        Deque<Integer> deque = new ArrayDeque<>();
+
     }
 
     public class ListNode {
         int val;
         ListNode next;
-
-        ListNode() {
-        }
-
+        ListNode() {}
         ListNode(int val) {
             this.val = val;
         }
-
         ListNode(int val, ListNode next) {
             this.val = val;
             this.next = next;
@@ -111,16 +107,6 @@ public class LeetcodeSample {
             System.out.println("close < max = " + cur + ')');
             generateParenthesisBacktrack(ans, cur + ')', open, close + 1, max);
         }
-    }
-
-    //TIQ-206 Reverse
-    public ListNode reverseList(ListNode head) {
-        if (head == null || head.next == null) return head;
-        ListNode p = reverseList(head.next);
-        head.next.next = head;
-
-        head.next = null;
-        return p;
     }
 
     //TIq-412 Concentration
@@ -398,7 +384,6 @@ public class LeetcodeSample {
             for (int coin = 0; coin < coins.length; coin++) {
                 if (coins[coin] <= i) {
                     dp[i] = Math.min(dp[i], dp[i - coins[coin]] + 1);
-                    System.out.println("dp[" + i + "] = " + dp[i]);
                 }
             }
         }
@@ -621,7 +606,7 @@ public class LeetcodeSample {
     //Given a string s which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built with those letters.
     //Input: s = "abccccdd"
     //Output: 7
-    public int longestPalindrome(String s) {
+    public int longestPalindrome1(String s) {
         HashSet<Character> set = new HashSet();
         int count = 0;
         for (int i=0; i<s.length();i++) {
@@ -675,9 +660,92 @@ public class LeetcodeSample {
     //Input: l1 = [2,4,3], l2 = [5,6,4]
     //Output: [7,0,8]
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode listNode = new ListNode(0);
+        int carry = 0;
+        ListNode cur = listNode;
+        while (l1!=null||l2!=null||carry!=0) {
 
+            int v1 = l1 == null ? 0:l1.val;
+            int v2 = l2 == null ? 0:l2.val;
+            if (l1 != null) l1 = l1.next;
+            if (l2 != null) l2 = l2.next;
+
+            int value = carry + v1 + v2;
+            carry = value/10;
+            cur.next = new ListNode(value%10);
+            cur = cur.next;
+        }
+        return listNode.next;
     }
 
+    //24. Swap Nodes in Pairs
+    //Given a linked list, swap every two adjacent nodes and return its head.
+    //Input: head = [1,2,3,4]
+    //Output: [2,1,4,3]
+    public ListNode swapPairs(ListNode head) {
+        if (head == null ||head.next == null) return head;
+        ListNode next = head.next;
+        head.next  = swapPairs(head.next.next);
+        next.next = head;
+        return next;
+    }
+    public ListNode swapPairs1(ListNode head) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode cur = dummy;
+
+        while (cur.next != null&&cur.next.next != null) {
+            ListNode pre = cur.next;
+            ListNode nex = cur.next.next;
+            cur.next = nex;
+            pre.next = nex.next;
+            nex.next = pre;
+            cur = pre;
+        }
+        return dummy.next;
+    }
+
+    //206-Reverse Linked List
+    //Given the head of a singly linked list, reverse the list, and return the reversed list.
+    //Input: head = [1,2,3,4,5]
+    //Output: [5,4,3,2,1]
+    public ListNode reverseList(ListNode head) {
+            if (head == null ||head.next == null) return head;
+
+            ListNode lastNode = reverseList(head.next);
+            lastNode.next = head;
+            head.next = null;
+            return lastNode;
+    }
+    public ListNode reverseList2(ListNode head) {
+        ListNode pre = null;
+        ListNode cur = head;
+        while (cur != null) {
+            ListNode temp = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = temp;
+        }
+        return pre;
+    }
+
+    //19. Remove Nth Node From End of List
+    //Given the head of a linked list, remove the nth node from the end of the list and return its head.
+    //Input: head = [1,2,3,4,5], n = 2
+    //Output: [1,2,3,5]
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode left = dummy;
+        ListNode right = dummy;
+        for (int i = 0; i< n+1; i++) {  right = right.next; }
+        while (right.next != null) {
+            right = right.next;
+            left = left.next;
+        }
+        left.next = right;
+        return dummy.next;
+    }
 
 
 
