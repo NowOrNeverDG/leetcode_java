@@ -9,9 +9,7 @@ public class LeetcodeSample {
     public static void main(String[] args) {
         int[] nums1 = new int[]{4,1,2};
         int[] nums2 = new int[]{1,3,4,2};
-
         Deque<Integer> deque = new ArrayDeque<>();
-
     }
 
     public class ListNode {
@@ -408,9 +406,8 @@ public class LeetcodeSample {
         }
         return res;
     }
-
     //1-two sum
-    //nums = [1,3,1,2,2,3], target = 4 可有多解
+    //nums = [1,1,1,2,2,3], target = 4 可有多解
     //Output: [[1,3],[2,2]]
     public static List<List<Integer>> twoSumTarget(int[] nums, int target) {
         Arrays.sort(nums);
@@ -418,9 +415,9 @@ public class LeetcodeSample {
         List<List<Integer>> res = new ArrayList<>();
         while (left < right) {
            int low = nums[left], high = nums[right];
-            if (low + high > target) high--;
-            else if (low + high < target) low++;
-            else {
+           if (low + high > target) high--;
+           else if (low + high < target) low++;
+           else {
                 List<Integer> ans = new ArrayList<>();
                 ans.add(low);
                 ans.add(high);
@@ -747,6 +744,147 @@ public class LeetcodeSample {
         return dummy.next;
     }
 
+    //160-Intersection of Two Linked Lists
+    //Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return null.
+    //Input: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3
+    //Output: Intersected at '8'
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        Deque<ListNode> stack = new ArrayDeque<>();
+        while (headA != null) {
+            stack.push(headA);
+            headA = headA.next;
+        }
+        while (headB != null) {
+            if (stack.contains(headB)) return headB;
+            headB = headB.next;
+        }
+        return null;
+    }
+    public ListNode getIntersectionNode1(ListNode headA, ListNode headB) {
+        ListNode p1 = headA;
+        ListNode p2 = headB;
+        while (p1 != p2) {
+            p1 = p1 == null ? headB : p1.next;
+            p2 = p2 == null ? headA : p2.next;
+        }
+        return p1;
+    }
 
+    //21-Merge Two Sorted Lists
+    //Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.
+    //Input: l1 = [1,2,4], l2 = [1,3,4]
+    //Output: [1,1,2,3,4,4]
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if (l1 == null) return l2;
+        if (l2 == null) return l1;
+        if (l1.val < l2.val) {
+            l1.next = mergeTwoLists(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = mergeTwoLists(l1, l2.next);
+            return l2;
+        }
+    }
 
+    //83-Remove Duplicates from Sorted List
+    //Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
+    //Input: head = [1,1,2]
+    //Output: [1,2]
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode cur = head;
+        while (cur != null && cur.next != null) {
+            if (cur.val == cur.next.val) {
+                cur.next = cur.next.next;
+            } else {
+                cur = cur.next;
+            }
+        }
+        return  head;
+    }
+
+    //445-Add Two Numbers II
+    //You are given two non-empty linked lists representing two non-negative integers. The most significant digit comes first and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+    //Input: (7 -> 2 -> 4 -> 3) + (5 -> 6 -> 4)
+    //Output: 7 -> 8 -> 0 -> 7
+    public ListNode addTwoNumbers1(ListNode l1, ListNode l2) {
+        Deque stack1 = new ArrayDeque();
+        Deque stack2 = new ArrayDeque();
+
+        while (l1 != null) {
+            stack1.push(l1.val);
+            l1 = l1.next;
+        }
+        while (l2 != null) {
+            stack2.push(l2.val);
+            l2 = l2.next;
+        }
+        int carry = 0;
+        Deque stack = new ArrayDeque();
+        while (!(stack1.isEmpty()&&stack2.isEmpty()&&carry == 0)) {
+            int s1 = stack1.isEmpty()? 0: (int) stack1.pop();
+            int s2 = stack2.isEmpty()? 0: (int) stack2.pop();
+            int sum = s1+s2+carry;
+            carry = sum/10;
+            int val = sum%10;
+            stack.push(val);
+        }
+        ListNode dummy = new ListNode();
+        ListNode cur = dummy;
+        while (!stack.isEmpty()) {
+            ListNode node = new ListNode();
+            node.val = (int)stack.pop();
+            cur.next = node;
+            cur = node;
+        }
+        return dummy.next;
+    }
+
+    //1436-Destination City
+    //You are given the array paths, where paths[i] = [cityAi, cityBi] means there exists a direct path going from cityAi to cityBi. Return the destination city, that is, the city without any path outgoing to another city.
+    //Input: paths = [["London","New York"],["New York","Lima"],["Lima","Sao Paulo"]]
+    //Output: "Sao Paulo"
+    public String destCity(List<List<String>> paths) {
+        HashSet<String> set = new HashSet<String>();
+        for (List<String> list : paths) {
+            set.add(list.get(1));
+        }
+        for (List<String> list : paths) {
+            set.remove(list.get(0));
+        }
+        return set.iterator().next();
+    }
+
+    //20-Valid Parentheses
+    //Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+    //Input: s = "()[]{}"
+    //Output: true
+    public boolean isValid(String s) {
+        char[] arr = s.toCharArray();
+        Deque stack = new ArrayDeque();
+        for (char c: arr) {
+            if (c == '['||c == '{'||c == '(')  stack.push(c);
+            else if (stack.isEmpty()) return false;
+            else {
+                if (c == ']') { if (!stack.peek().equals('[')) { return false;} else stack.pop(); }
+                if (c == '}') { if (!stack.peek().equals('{')) { return false;} else stack.pop(); }
+                if (c == ')') { if (!stack.peek().equals('(')) { return false;} else stack.pop(); }
+            }
+        }
+        if (!stack.isEmpty()) return false;
+        return true;
+    }
+
+    //739-Daily Temperatures
+    //Given a list of daily temperatures T, return a list such that, for each day in the input, tells you how many days you would have to wait until a warmer temperature. If there is no future day for which this is possible, put 0 instead.
+    public static int[] dailyTemperatures(int[] T) {
+        Deque<Integer> stack = new ArrayDeque<Integer>();
+        int[] ans = new int[T.length];
+        for (int i = T.length-1; i>=0; i--) {
+
+            while (!stack.isEmpty()&&T[i] >= T[stack.peek()]) stack.pop();
+            ans[i] = stack.isEmpty()? 0:stack.peek()-i;
+            stack.push(i);
+        }
+        return ans;
+    }
 }

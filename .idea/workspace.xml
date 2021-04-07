@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41db025d-eaf0-4f6e-81b4-c1059cd6b671" name="Default Changelist" comment="Update daily">
-      <change afterPath="$PROJECT_DIR$/src/Linkedlist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PointedOffer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetcodeProject/DoublePoint.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample$ListNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample$Node.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample$TreeNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetcodeProject/LeetcodeSample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DoublePoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DoublePoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LeetcodeSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetcodeSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +140,7 @@
       <workItem from="1616722995370" duration="13748000" />
       <workItem from="1617160457778" duration="36468000" />
       <workItem from="1617438363728" duration="385000" />
-      <workItem from="1617438752121" duration="37907000" />
+      <workItem from="1617438752121" duration="43828000" />
     </task>
     <servers />
   </component>
@@ -238,11 +231,15 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="269" y="204" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.25.1440.875@0.25.1440.875" timestamp="1611895561704" />
-    <state x="385" y="214" width="670" height="676" key="search.everywhere.popup" timestamp="1617594585939">
+    <state x="123" y="65" key="new project wizard" timestamp="1617750117027">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="123" y="65" key="new project wizard/0.25.1440.875@0.25.1440.875" timestamp="1617750117027" />
+    <state x="385" y="214" width="670" height="676" key="search.everywhere.popup" timestamp="1617751367623">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="385" y="214" width="670" height="676" key="search.everywhere.popup/0.25.1440.875/1440.25.1116.731@0.25.1440.875" timestamp="1616797083321" />
-    <state x="385" y="214" width="670" height="676" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1617594585939" />
+    <state x="385" y="214" width="670" height="676" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1617751367623" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
