@@ -1,5 +1,7 @@
 import com.sun.source.tree.Tree;
 
+import javax.print.DocFlavor;
+import java.lang.reflect.Array;
 import java.util.*;
 
 import static java.lang.Math.min;
@@ -331,17 +333,19 @@ public class LeetcodeSample {
         return maxprofit;
     }
 
-    //242
+    //242-Valid Anagram
+    //Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+    //Input: s = "anagram", t = "nagaram"
+    //Output: true
     public boolean isAnagram(String s, String t) {
-        if (s.length() != t.length()) return false;
-        int[] table = new int[26];
+        HashMap<Character,Integer> s_map = new HashMap<Character, Integer>();
 
-        for (int i = 0; i < s.length(); i++) {
-            table[s.charAt(i) - 'a']++;
-        }
-        for (int i = 0; i < t.length(); i++) {
-            table[t.charAt(i) - 'a']--;
-            if (table[t.charAt(i) - 'a'] < 0) return false;
+        for (char c: s.toCharArray()) s_map.put(c , s_map.getOrDefault(c,0)+1);
+        for (char c: t.toCharArray()) s_map.put(c , s_map.getOrDefault(c,0)-1);
+
+        for (char c : s_map.keySet()) {
+            if (s_map.get(c) == 0) continue;
+            return false;
         }
         return true;
     }
@@ -887,4 +891,46 @@ public class LeetcodeSample {
         }
         return ans;
     }
+
+    //451-Sort Characters By Frequency
+    //Given a string, sort it in decreasing order based on the frequency of characters.
+    //敏捷开发，abstract class final？, error和exception，abstract class和interface
+    public String frequencySort(String s) {
+        HashMap<Character,Integer> counts = new HashMap<Character, Integer>();
+        for (char c: s.toCharArray()) {
+            counts.put(c,counts.getOrDefault(c, 0)+1);
+        }
+        List<Character>[] bucket = new List[s.length()+1];
+        bucket[0] = null;
+        for (char c : counts.keySet()) {
+            int freq = counts.get(c);
+            if (bucket[freq] == null)  bucket[freq] = new ArrayList<Character>();
+            bucket[freq].add(c);
+        }
+        StringBuilder str = new StringBuilder();
+        for (int i = bucket.length-1; i>=0;i--) {
+            if (bucket[i] == null) continue;
+            for (char c : bucket[i]) {
+                for (int j = 0; j < i; j++)  str.append(c);
+            }
+        }
+        return  str.toString();
+    }
+
+    //205-Isomorphic Strings
+    //Given two strings s and t, determine if they are isomorphic.
+    //Input: s = "egg", t = "add"
+    //Output: true
+    public boolean isIsomorphic(String s, String t) {
+        HashMap<Character,Integer> s_map = new HashMap<Character, Integer>();
+        HashMap<Character,Integer> t_map = new HashMap<Character, Integer>();
+        char[] s_arr = s.toCharArray();
+        char[] t_arr = t.toCharArray();
+
+        for (int i = 0; i< s_arr.length; i++) {
+            s_map.get()
+        }
+    }
+
+
 }
