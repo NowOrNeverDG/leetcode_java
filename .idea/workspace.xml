@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41db025d-eaf0-4f6e-81b4-c1059cd6b671" name="Default Changelist" comment="Update daily">
-      <change afterPath="$PROJECT_DIR$/src/TypicalString.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LeetcodeSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetcodeSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TypicalString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TypicalString.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +142,7 @@
       <workItem from="1617438363728" duration="385000" />
       <workItem from="1617438752121" duration="45034000" />
       <workItem from="1617776313432" duration="624000" />
-      <workItem from="1617918794237" duration="8974000" />
+      <workItem from="1617918794237" duration="15557000" />
     </task>
     <servers />
   </component>
