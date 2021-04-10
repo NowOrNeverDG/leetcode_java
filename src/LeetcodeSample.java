@@ -933,16 +933,6 @@ public class LeetcodeSample {
         return true;
     }
 
-    //647-Palindromic Substrings
-    //Given a string, your task is to count how many palindromic substrings in this string.
-    //Input: "abc"
-    //Output: 3
-    public int countSubstrings(String s) {
-        int count = 0;
-
-        return count;
-    }
-
     //696-Count Binary Substrings
     //Give a string s, count the number of non-empty (contiguous) substrings that have the same number of 0's and 1's, and all the 0's and all the 1's in these substrings are grouped consecutively.
     //Input: "00110011"
@@ -960,7 +950,15 @@ public class LeetcodeSample {
         return ans;
     }
 
-    
+    //647-Palindromic Substrings
+    //Given a string, your task is to count how many palindromic substrings in this string.
+    //Input: "abc"
+    //Output: 3
+    public int countSubstrings(String s) {
+
+    }
+
+
 
 
 }
