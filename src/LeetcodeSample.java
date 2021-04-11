@@ -954,9 +954,69 @@ public class LeetcodeSample {
     //Given a string, your task is to count how many palindromic substrings in this string.
     //Input: "abc"
     //Output: 3
+    int count647 = 0;
     public int countSubstrings(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            isPalindromic647(s,i, i);
+            isPalindromic647(s, i, i+1);
+        }
+        return count647;
+    }
+    public void isPalindromic647(String str, int left, int right) {
+        char[] arr = str.toCharArray();
+        while (left>=0&&right<arr.length&&arr[left] == arr[right]) {
+            count647 += 1;
+            left--;
+            right++;
+        }
+    }
+
+    //9-Palindrome Number
+    //Given an integer x, return true if x is palindrome integer.
+    //Input: x = 121
+    //Output: true
+    public boolean isPalindrome(int x) {
+        String x_str = String.valueOf(x);
+        System.out.println(x_str.length());
+        Boolean isOdd = x_str.length()%2==0 ? false:true;
+        System.out.println(isOdd);
+        int left = 0, right = 0;
+        if (isOdd == true) {left = x_str.length()/2; right = left;}
+        else {left = x_str.length()/2-1; right = x_str.length()/2;}
+
+        return isPalindromic9(x_str,left,right);
+    }
+    public boolean isPalindromic9(String str, int left, int right){
+        char[] arr = str.toCharArray();
+        while (left>=0&&right<arr.length) {
+            if (arr[left] != arr[right]) return false;
+            left--;
+            right++;
+        }
+        return true;
+    }
+    public boolean isPalindrome1(int x) {
+        if (x < 0) return false;
+        int y = x;
+        int rev = 0;
+        while (y != 0) {
+            rev = rev*10 + x%10;
+            y = y/10;
+        }
+        return y == x;
+    }
+
+    //455-Assign Cookies
+    //Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie.
+    //Each child i has a greed factor g[i], which is the minimum size of a cookie that the child will be content with; and each cookie j has a size s[j]. If s[j] >= g[i], we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number.
+    //Input: g = [1,2,3], s = [1,1]
+    //Output: 1
+    public int findContentChildren(int[] g, int[] s) {
 
     }
+
+    
+
 
 
 
