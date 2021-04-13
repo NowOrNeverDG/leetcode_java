@@ -1,3 +1,5 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -112,13 +114,14 @@ public class TypicalString {
         }
         return true;
     }
+
     public boolean isPalindrome1(int x) {
         if (x < 0) return false;
         int y = x;
         int rev = 0;
         while (y != 0) {
-            rev = rev*10 + x%10;
-            y = y/10;
+            rev = rev * 10 + x % 10;
+            y = y / 10;
         }
         return y == x;
     }

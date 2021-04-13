@@ -60,6 +60,7 @@ public class LeetcodeSample {
         }
     };
 
+
     //TIQ-94 Morris Algorithm
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> nodes = new ArrayList<>();
@@ -1006,19 +1007,101 @@ public class LeetcodeSample {
         return y == x;
     }
 
+    //503-Next Greater Element II
+    //Given a circular integer array nums (i.e., the next element of nums[nums.length - 1] is nums[0]), return the next greater number for every element in nums.
+    //Input: nums = [1,2,3,4,3]
+    //Output: [2,3,4,-1,4]
+    public int[] nextGreaterElements(int[] nums) {
+        int[] ans = new int[nums.length];
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (int i = nums.length-1; i>=0; i--) {
+            while (!stack.isEmpty()&&nums[stack.peek()] <= nums[i]) {
+                stack.pop();
+            }
+            ans[i] = stack.isEmpty() ? -1 : nums[stack.peek()];
+            stack.push(i);
+        }
+        for (int i = nums.length-1; i>=0; i--) {
+            while (!stack.isEmpty()&&nums[stack.peek()] <= nums[i]) {
+                stack.pop();
+            }
+            ans[i] = stack.isEmpty() ? -1 : nums[stack.peek()];
+            stack.push(i);
+        }
+        return ans;
+    }
+
+    //252-Meeting Rooms
+    //Given an array of meeting time intervals where intervals[i] = [starti, endi], determine if a person could attend all meetings.
+    //Input: intervals = [[0,30],[5,10],[15,20]]
+    //Output: false
+    public boolean canAttendMeetings(int[][] intervals) {
+        Arrays.sort(intervals, (a,b) -> Integer.compare(a[0],b[0]));
+        for (int i = 0; i < intervals.length-1;i++) {
+            if (intervals[i][1] > intervals[i+1][0]) return false;
+        }
+        return true;
+    }
+
+
+    //232- Implement Queue using Stacks
+    //Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty).
+    //Input
+    //["MyQueue", "push", "push", "peek", "pop", "empty"]
+    //[[], [1], [2], [], [], []]
+    //Output
+    //[null, null, null, 1, 1, false]
+    class MyQueue {
+        private Stack<Integer> in = new Stack<>();
+        private Stack<Integer> out = new Stack<>();
+        /** Initialize your data structure here. */
+        public MyQueue() {}
+        /** Push element x to the back of queue. */
+        public void push(int x) {
+            in.push(x);
+        }
+        /** Removes the element from in front of queue and returns that element. */
+        public int pop() {
+            if (out.isEmpty()) in2out();
+            return out.pop();
+        }
+
+        /** Get the front element. */
+        public int peek() {
+            if (out.isEmpty()) in2out();
+            return out.peek();
+        }
+
+        /** Returns whether the queue is empty. */
+        public boolean empty() {
+            if (in.isEmpty()&&out.isEmpty()) return true;
+            return false;
+        }
+
+        public void in2out() {
+            while (!in.isEmpty()) {
+                out.push(in.pop());
+            }
+        }
+    }
+
+    //225-Implement Stack using Queues
+    //Implement a last in first out (LIFO) stack using only two queues. The implemented stack should support all the functions of a normal queue (push, top, pop, and empty).
+    //Input: ["MyStack", "push", "push", "top", "pop", "empty"]
+    //[[], [1], [2], [], [], []]
+    //Output: [null, null, null, 2, 2, false]
+
     //455-Assign Cookies
     //Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie.
     //Each child i has a greed factor g[i], which is the minimum size of a cookie that the child will be content with; and each cookie j has a size s[j]. If s[j] >= g[i], we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number.
     //Input: g = [1,2,3], s = [1,1]
     //Output: 1
     public int findContentChildren(int[] g, int[] s) {
-
+        return 1;
     }
 
-    
-
-
-
-
-
+    //435-Non-overlapping Intervals
+    //Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
+    //Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
+    //Output: 1
 }
