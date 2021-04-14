@@ -4,6 +4,7 @@ import javax.print.DocFlavor;
 import java.lang.reflect.Array;
 import java.util.*;
 
+import static java.lang.Math.max;
 import static java.lang.Math.min;
 
 public class LeetcodeSample {
@@ -311,18 +312,6 @@ public class LeetcodeSample {
             ans.get(key).add(s);
         }
         return new ArrayList(ans.values());
-    }
-    public void moveZeroes(int[] nums) {
-        if (nums == null || nums.length == 0 ) return;
-        int j = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != 0) {
-                int temp = nums[j];
-                nums[j] = nums[i];
-                nums[i] = temp;
-                j++;
-            }
-        }
     }
 
     //122
@@ -1087,9 +1076,152 @@ public class LeetcodeSample {
 
     //225-Implement Stack using Queues
     //Implement a last in first out (LIFO) stack using only two queues. The implemented stack should support all the functions of a normal queue (push, top, pop, and empty).
-    //Input: ["MyStack", "push", "push", "top", "pop", "empty"]
+    //Input:["MyStack", "push", "push", "top", "pop", "empty"]
     //[[], [1], [2], [], [], []]
-    //Output: [null, null, null, 2, 2, false]
+    //Output:[null, null, null, 2, 2, false]
+    class MyStack {
+        Queue<Integer> q = new LinkedList<Integer>();
+        /** Initialize your data structure here. */
+        public MyStack() {}
+        /** Push element x onto stack. */
+        public void push(int x) {
+            q.add(x);
+            for (int i = 1; i < q.size(); i++) {
+                q.add(q.remove());
+            }
+        }
+        /** Removes the element on top of the stack and returns that element. */
+        public int pop() {
+            return q.remove();
+        }
+        /** Get the top element. */
+        public int top() {
+            return q.peek();
+        }
+        /** Returns whether the stack is empty. */
+        public boolean empty() {
+            return q.isEmpty();
+        }
+    }
+
+    //283-Move Zeroes
+    //Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+    //Input: nums = [0,1,0,3,12]
+    //Output: [1,3,12,0,0]
+    public void moveZeroes1(int[] nums) {
+        int left = 0; int right = 1;
+        while (right<nums.length) {
+            if (nums[right] != 0)right++;
+            else {
+                while (nums[left] != 0 && left < right) left++;
+                int num = nums[right];
+                nums[right] = nums[left];
+                nums[left] = num;
+            }
+        }
+    }
+
+    //283-Move Zeroes
+    //Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+    //Input: nums = [0,1,0,3,12]
+    //Output: [1,3,12,0,0]
+    public void moveZeroes(int[] nums) {
+        int p = 0;
+        for (int i = 0; i < nums.length;i++) {
+            if (nums[i] != 0) {
+                int temp = nums[i];
+                nums[i] = nums[p];
+                nums[p] = nums[i];
+                p++;
+            }
+        }
+    }
+
+    //566-Reshape the Matrix
+    //You're given a matrix represented by a two-dimensional array, and two positive integers r and c representing the row number and column number of the wanted reshaped matrix, respectively.
+    //Input:
+    //nums =
+    //[[1,2],
+    // [3,4]]
+    //r = 1, c = 4
+    //Output:
+    //[[1,2,3,4]]
+    public int[][] matrixReshape(int[][] nums, int r, int c) {
+        if (nums.length * nums[0].length != r * c) return nums;
+
+        int[][] ans = new int[r][c];
+        int[] temp = new int[r*c];
+
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums[i].length; j++) {
+                temp[i*nums[i].length+j] = nums[i][j];
+            }
+        }
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                ans[i][j] = temp[i*c+j];
+            }
+        }
+        return ans;
+    }
+
+    //485-Max Consecutive Ones
+    //Given a binary array nums, return the maximum number of consecutive 1's in the array.
+    //Input: nums = [1,1,0,1,1,1]
+    //Output: 3
+    public int findMaxConsecutiveOnes(int[] nums) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        int maxSize = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0) stack.clear();
+            else {
+                stack.push(i);
+                maxSize = Math.max(stack.size(),maxSize);
+            }
+        }
+        return maxSize;
+    }
+
+    //240-Search a 2D Matrix II
+    //Write an efficient algorithm that searches for a target value in an m x n integer matrix. The matrix has the following properties:
+    //Input: matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5
+    //Output: true
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int r = matrix.length;
+        int c = matrix[0].length;
+        int i = r-1;
+        int j = 0;
+        while (0<=i&&i<r&&0<=j&&j<c) {
+            System.out.println("i = " + i + " / " + "j =" + j);
+            if (matrix[i][j] < target) j++;
+            else if (matrix[i][j] > target) i--;
+            else if (matrix[i][j] == target) return true;
+        }
+        return false;
+    }
+
+    //378-Kth Smallest Element in a Sorted Matrix
+    //Given an n x n matrix where each of the rows and columns are sorted in ascending order, return the kth smallest element in the matrix
+    //Input: matrix = [[1,5,9],[10,11,13],[12,13,15]], k = 8
+    //Output: 13
+    public int kthSmallest(int[][] matrix, int k) {
+        int r = matrix.length;
+        int c = matrix[0].length;
+        int[] arr = new int[c*r];
+        for (int i = 0; i<r; i++) {
+            for (int j = 0; j < c; j++) {
+                arr[i*c+j] = matrix[i][j];
+            }
+        }
+
+        Arrays.sort(arr);
+        return arr[k-1];
+    }
+
+
+
+
+
 
     //455-Assign Cookies
     //Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie.
