@@ -517,15 +517,20 @@ public class LeetcodeSample {
         }
         return -1;
     }
-
-    //394-Decode String
-    //Given an encoded string, return its decoded string.
-    //The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times. Note that k is guaranteed to be a positive integer.
-    //You may assume that the input string is always valid; No extra white spaces, square brackets are well-formed, etc.
-    //Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k. For example, there won't be input like 3a or 2[4].
-    //Input: s = "3[a]2[bc]"
-    //Output: "aaabcbc"
-
+    public int findDuplicate1(int[] nums) {//快慢指针Floyd's Tortoise and Hare
+        int slow = 0;
+        int fast = 0;
+        do {
+            fast = nums[nums[fast]];
+            slow = nums[slow];
+        } while (slow != fast);
+        fast = 0;
+        while (fast != slow) {
+            fast = nums[fast];
+            slow = nums[slow];
+        }
+        return slow;
+    }
 
     //496-Next Greater Element I
     //You are given two integer arrays nums1 and nums2 both of unique elements, where nums1 is a subset of nums2.
@@ -1213,14 +1218,52 @@ public class LeetcodeSample {
                 arr[i*c+j] = matrix[i][j];
             }
         }
-
         Arrays.sort(arr);
         return arr[k-1];
     }
 
 
 
+    //667. Beautiful Arrangement II
+    //Given two integers n and k, construct a list answer that contains n different positive integers ranging from 1 to n and obeys the following requirement:
+    //Input: n = 3, k = 1
+    //Output: [1,2,3]
+    public int[] constructArray(int n, int k) {
+        int[] ans = new int[n];
+        int c = 0;
+        for (int v = 1; v < n-k; v++) {
+            ans[c++] = v;
+        }
+        for (int i = 0; i < ans.length; i++)         System.out.println(ans[i]);
+        for (int i = 0; i <= k; i++) {
+            ans[c++] = (i%2 == 0) ? (n-k + i/2) : (n - i/2);
+        }
+        return ans;
+    }
 
+    //697-Degree of an Array
+    //Given a non-empty array of non-negative integers nums, the degree of this array is defined as the maximum frequency of any one of its elements.
+    //Input: nums = [1,2,2,3,1]
+    //Output: 2
+    public int findShortestSubArray(int[] nums) {
+        HashMap<Integer,Integer> map = new HashMap<Integer, Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            int n = nums[i];
+            map.put(n,map.getOrDefault(n,0)+1);
+        }
+
+        for (int i = 0; i < map.size(); i++) {
+            
+        }
+
+
+
+    }
+
+
+
+
+    //645-Set Mismatch
 
 
     //455-Assign Cookies
@@ -1236,4 +1279,12 @@ public class LeetcodeSample {
     //Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
     //Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
     //Output: 1
+
+    //394-Decode String
+    //Given an encoded string, return its decoded string.
+    //The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times. Note that k is guaranteed to be a positive integer.
+    //You may assume that the input string is always valid; No extra white spaces, square brackets are well-formed, etc.
+    //Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k. For example, there won't be input like 3a or 2[4].
+    //Input: s = "3[a]2[bc]"
+    //Output: "aaabcbc"
 }

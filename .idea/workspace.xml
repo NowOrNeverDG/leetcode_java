@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41db025d-eaf0-4f6e-81b4-c1059cd6b671" name="Default Changelist" comment="Update daily">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ArrayNMatrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StackNQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BinarySearch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ArrayNMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArrayNMatrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LeetcodeSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetcodeSample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StackNArray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +56,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
-  <component name="RunManager" selected="Application.LeetcodeSample">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="DoublePoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DoublePoint" />
       <module name="LeetcodeProject" />
@@ -95,11 +94,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.LeetcodeSample" />
         <item itemvalue="Application.HouseRobber" />
         <item itemvalue="Application.StockSales" />
         <item itemvalue="Application.DoublePoint" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -147,7 +146,7 @@
       <workItem from="1617776313432" duration="624000" />
       <workItem from="1617918794237" duration="24227000" />
       <workItem from="1618266916872" duration="9933000" />
-      <workItem from="1618348909999" duration="17680000" />
+      <workItem from="1618348909999" duration="27875000" />
     </task>
     <servers />
   </component>
@@ -159,10 +158,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Update daily" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="458" y="223" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1618271167455">
+    <state x="458" y="223" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1618446447364">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="458" y="223" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.25.1440.875@0.25.1440.875" timestamp="1618271167455" />
+    <state x="458" y="223" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.25.1440.875@0.25.1440.875" timestamp="1618446447364" />
     <state x="489" y="349" width="461" height="231" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1615599303146">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -180,30 +179,30 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="414" height="466" key="DebuggerActiveHint/0.25.1440.875@0.25.1440.875" timestamp="1617496261066" />
-    <state width="1398" height="259" key="GridCell.Tab.0.bottom" timestamp="1617772636524">
+    <state width="1261" height="220" key="GridCell.Tab.0.bottom" timestamp="1618486467993">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1398" height="223" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1609917605171" />
     <state width="1398" height="260" key="GridCell.Tab.0.bottom/0.25.1440.875/1440.25.1116.731@0.25.1440.875" timestamp="1616102041998" />
-    <state width="1398" height="259" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1617772636524" />
-    <state width="1398" height="259" key="GridCell.Tab.0.center" timestamp="1617772636524">
+    <state width="1261" height="220" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1618486467993" />
+    <state width="1261" height="220" key="GridCell.Tab.0.center" timestamp="1618486467992">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1398" height="223" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1609917605170" />
     <state width="1398" height="260" key="GridCell.Tab.0.center/0.25.1440.875/1440.25.1116.731@0.25.1440.875" timestamp="1616102041997" />
-    <state width="1398" height="259" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1617772636524" />
-    <state width="1398" height="259" key="GridCell.Tab.0.left" timestamp="1617772636523">
+    <state width="1261" height="220" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1618486467992" />
+    <state width="1261" height="220" key="GridCell.Tab.0.left" timestamp="1618486467992">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1398" height="223" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1609917605170" />
     <state width="1398" height="260" key="GridCell.Tab.0.left/0.25.1440.875/1440.25.1116.731@0.25.1440.875" timestamp="1616102041997" />
-    <state width="1398" height="259" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1617772636523" />
-    <state width="1398" height="259" key="GridCell.Tab.0.right" timestamp="1617772636524">
+    <state width="1261" height="220" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1618486467992" />
+    <state width="1261" height="220" key="GridCell.Tab.0.right" timestamp="1618486467992">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1398" height="223" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1609917605170" />
     <state width="1398" height="260" key="GridCell.Tab.0.right/0.25.1440.875/1440.25.1116.731@0.25.1440.875" timestamp="1616102041997" />
-    <state width="1398" height="259" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1617772636524" />
+    <state width="1261" height="220" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1618486467992" />
     <state width="1398" height="259" key="GridCell.Tab.1.bottom" timestamp="1617772636525">
       <screen x="0" y="25" width="1440" height="875" />
     </state>

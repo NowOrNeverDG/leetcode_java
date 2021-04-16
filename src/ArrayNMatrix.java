@@ -1,5 +1,6 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.HashSet;
 
 public class ArrayNMatrix {
 
@@ -10,9 +11,9 @@ public class ArrayNMatrix {
     public boolean searchMatrix(int[][] matrix, int target) {
         int r = matrix.length;
         int c = matrix[0].length;
-        int i = r-1;
+        int i = r - 1;
         int j = 0;
-        while (0<=i&&i<r&&0<=j&&j<c) {
+        while (0 <= i && i < r && 0 <= j && j < c) {
             System.out.println("i = " + i + " / " + "j =" + j);
             if (matrix[i][j] < target) j++;
             else if (matrix[i][j] > target) i--;
@@ -27,7 +28,7 @@ public class ArrayNMatrix {
     //Output: [1,3,12,0,0]
     public void moveZeroes(int[] nums) {
         int p = 0;
-        for (int i = 0; i < nums.length;i++) {
+        for (int i = 0; i < nums.length; i++) {
             if (nums[i] != 0) {
                 int temp = nums[i];
                 nums[i] = nums[p];
@@ -50,16 +51,16 @@ public class ArrayNMatrix {
         if (nums.length * nums[0].length != r * c) return nums;
 
         int[][] ans = new int[r][c];
-        int[] temp = new int[r*c];
+        int[] temp = new int[r * c];
 
         for (int i = 0; i < nums.length; i++) {
             for (int j = 0; j < nums[i].length; j++) {
-                temp[i*nums[i].length+j] = nums[i][j];
+                temp[i * nums[i].length + j] = nums[i][j];
             }
         }
         for (int i = 0; i < r; i++) {
             for (int j = 0; j < c; j++) {
-                ans[i][j] = temp[i*c+j];
+                ans[i][j] = temp[i * c + j];
             }
         }
         return ans;
@@ -76,9 +77,56 @@ public class ArrayNMatrix {
             if (nums[i] == 0) stack.clear();
             else {
                 stack.push(i);
-                maxSize = Math.max(stack.size(),maxSize);
+                maxSize = Math.max(stack.size(), maxSize);
             }
         }
         return maxSize;
     }
+
+    //287-Find the Duplicate Number
+    //Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+    //Input: nums = [1,3,4,2,2]
+    //Output: 2
+    public int findDuplicate(int[] nums) {
+        HashSet set = new HashSet();
+        int ans;
+        for (int i = 0; i < nums.length; i++) {
+            if (set.contains(nums[i])) return nums[i];
+            set.add(nums[i]);
+        }
+        return -1;
+    }
+    public int findDuplicate1(int[] nums) {//快慢指针Floyd's Tortoise and Hare
+        int slow = 0;
+        int fast = 0;
+        do {
+            fast = nums[nums[fast]];
+            slow = nums[slow];
+        } while (slow != fast);
+        fast = 0;
+        while (fast != slow) {
+            fast = nums[fast];
+            slow = nums[slow];
+        }
+        return slow;
+    }
+
+    //667. Beautiful Arrangement II
+    //Given two integers n and k, construct a list answer that contains n different positive integers ranging from 1 to n and obeys the following requirement:
+    //Input: n = 3, k = 1
+    //Output: [1,2,3]
+    public int[] constructArray(int n, int k) {
+        int[] ans = new int[n];
+        int c = 0;
+        for (int v = 1; v < n-k; v++) {
+            ans[c++] = v;
+        }
+        for (int i = 0; i < ans.length; i++)         System.out.println(ans[i]);
+        for (int i = 0; i <= k; i++) {
+            ans[c++] = (i%2 == 0) ? (n-k + i/2) : (n - i/2);
+        }
+        return ans;
+    }
+
+    //697-Degree of an Array
 }
