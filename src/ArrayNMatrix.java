@@ -1,6 +1,4 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashSet;
+import java.util.*;
 
 public class ArrayNMatrix {
 
@@ -129,4 +127,33 @@ public class ArrayNMatrix {
     }
 
     //697-Degree of an Array
+    //Given a non-empty array of non-negative integers nums, the degree of this array is defined as the maximum frequency of any one of its elements.
+    //Input: nums = [1,2,2,3,1]
+    //Output: 2
+    public int findShortestSubArray(int[] nums) {
+        HashMap<Integer,Integer> left = new HashMap<Integer, Integer>();
+        HashMap<Integer,Integer> right = new HashMap<Integer, Integer>();
+        HashMap<Integer,Integer> count = new HashMap<Integer, Integer>();
+
+        for (int i = 0; i < nums.length; i++) {
+            //计数
+            count.put(nums[i], count.getOrDefault(nums[i], 0) + 1);
+            //
+            if (left.containsKey(nums[i])) {
+                right.put(nums[i], i);
+            } else {
+                left.put(nums[i], i);
+                right.put(nums[i], i);
+            }
+        }
+
+        int degree = Collections.max(count.values());
+        int ans = nums.length;
+        for (int key:count.keySet()) {
+            if (count.get(key) == degree) {
+                ans = right.get(key) - left.get(key)+1 > ans ? ans:right.get(key)-left.get(key)+1;
+            }
+        }
+        return ans;
+    }
 }

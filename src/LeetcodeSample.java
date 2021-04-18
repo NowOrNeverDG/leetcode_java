@@ -1246,18 +1246,30 @@ public class LeetcodeSample {
     //Input: nums = [1,2,2,3,1]
     //Output: 2
     public int findShortestSubArray(int[] nums) {
-        HashMap<Integer,Integer> map = new HashMap<Integer, Integer>();
+        HashMap<Integer,Integer> left = new HashMap<Integer, Integer>();
+        HashMap<Integer,Integer> right = new HashMap<Integer, Integer>();
+        HashMap<Integer,Integer> count = new HashMap<Integer, Integer>();
+
         for (int i = 0; i < nums.length; i++) {
-            int n = nums[i];
-            map.put(n,map.getOrDefault(n,0)+1);
+            //计数
+            count.put(nums[i], count.getOrDefault(nums[i], 0) + 1);
+            //
+            if (left.containsKey(nums[i])) {
+                right.put(nums[i], i);
+            } else {
+                left.put(nums[i], i);
+                right.put(nums[i], i);
+            }
         }
 
-        for (int i = 0; i < map.size(); i++) {
-            
+        int degree = Collections.max(count.values());
+        int ans = nums.length;
+        for (int key:count.keySet()) {
+            if (count.get(key) == degree) {
+                ans = right.get(key) - left.get(key)+1 > ans ? ans:right.get(key)-left.get(key)+1;
+            }
         }
-
-
-
+        return ans;
     }
 
 
@@ -1272,13 +1284,25 @@ public class LeetcodeSample {
     //Input: g = [1,2,3], s = [1,1]
     //Output: 1
     public int findContentChildren(int[] g, int[] s) {
-        return 1;
+        Arrays.sort(g);//需要饼干数
+        Arrays.sort(s);//饼干个数
+        int gp = 0, sp = 0, count = 0;
+        while (gp<g.length&&sp<s.length) {
+            if (g[gp]<=s[sp]) {
+                count++;
+                gp++;
+            }
+            sp++;
+        }
+        return count;
     }
+
 
     //435-Non-overlapping Intervals
     //Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
     //Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
     //Output: 1
+    
 
     //394-Decode String
     //Given an encoded string, return its decoded string.
