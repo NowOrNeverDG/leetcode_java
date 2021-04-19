@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="41db025d-eaf0-4f6e-81b4-c1059cd6b671" name="Default Changelist" comment="Update daily">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ArrayNMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArrayNMatrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Greedy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Greedy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LeetcodeSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetcodeSample.java" afterDir="false" />
     </list>
@@ -146,7 +145,7 @@
       <workItem from="1617918794237" duration="24227000" />
       <workItem from="1618266916872" duration="9933000" />
       <workItem from="1618348909999" duration="29959000" />
-      <workItem from="1618628123760" duration="5098000" />
+      <workItem from="1618628123760" duration="15997000" />
     </task>
     <servers />
   </component>
