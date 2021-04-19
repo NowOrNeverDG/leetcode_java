@@ -315,7 +315,7 @@ public class LeetcodeSample {
     }
 
     //122
-    public int maxProfit (int[] prices) {
+    public int maxProfitII (int[] prices) {
         int maxprofit = 0;
         for (int i = 1; i < prices.length; i++) {
             if (prices[i] > prices[i-1]) maxprofit = maxprofit + (prices[i] - prices[i-1]);
@@ -1372,6 +1372,54 @@ public class LeetcodeSample {
         int n = people.length;
         return output.toArray(new int[n][2]);
     }
+
+    //121-Best Time to Buy and Sell Stock
+    //You are given an array prices where prices[i] is the price of a given stock on the ith day.
+    //You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+    //Input: prices = [7,1,5,3,6,4]
+    //Output: 5
+    public int maxProfit1(int[] prices) {//greedy
+        int base = Integer.MAX_VALUE;
+        int profit = Integer.MIN_VALUE;
+        for (int i = 0; i < prices.length;i++) {
+            base = Math.min(base, prices[i]);
+            profit = Math.max(profit, prices[i]-base);
+        }
+        return profit;
+    }
+    public int maxProfit(int[] prices) {
+        int n = prices.length;
+        int dp_i_0 = 0;
+        int dp_i_1 = Integer.MIN_VALUE;
+        for (int i = 0; i < prices.length; i++) {
+            dp_i_0 = Math.max(dp_i_0,dp_i_1+prices[i]);
+            dp_i_1 = Math.max(dp_i_1,-prices[i]);
+        }
+        return dp_i_0;
+    }
+
+    //605-Can Place Flowers
+    //You have a long flowerbed in which some of the plots are planted, and some are not. However, flowers cannot be planted in adjacent plots.
+    //Input: flowerbed = [1,0,0,0,1], n = 1
+    //Output: true
+    public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        int count = 0;
+        for (int i = 0; i < flowerbed.length;i++) {
+            if (flowerbed[i] == 1) continue;
+            int pre = i==0 ? 0:flowerbed[i-1];
+            int next = i==flowerbed.length-1 ? 0:flowerbed[i+1];
+
+            if (pre==0&&next==0) {
+                count++;
+                flowerbed[i] = 1;
+            }
+        }
+        return count>=n;
+    }
+
+
+
+
 
 
 
