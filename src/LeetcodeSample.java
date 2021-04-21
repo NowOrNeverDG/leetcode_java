@@ -1417,13 +1417,112 @@ public class LeetcodeSample {
         return count>=n;
     }
 
+    //392-Is Subsequence
+    //A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
+    //Input: s = "abc", t = "ahbgdc"
+    //Output: true
+    public boolean isSubsequence(String s, String t) {
+        if (s == null || t == null || s.length() > t.length()) return false;
+        if (s.length() == 0) return true;
+        int index = 0;
+        for (int i = 0; i < t.length(); i++) {
+            if (s.charAt(index) == t.charAt(i)) index++;
+            if (index == s.length()) return true;
+        }
+        return index == s.length();
+    }
 
+    //665-Non-decreasing Array
+    //Given an array nums with n integers, your task is to check if it could become non-decreasing by modifying at most one element.
+    //Input: nums = [4,2,3]
+    //Output: true
+    public boolean checkPossibility(int[] nums) {
+        int count = 0;
+        for (int i = 1; i < nums.length-1; i++) {
+            int pre = i == 1 ? 0:nums[i-2];
+            System.out.println(pre + " / " + nums[i-1] + " / " + nums[i]);
+            if (nums[i] >= nums[i-1]) continue;
+            count++;
+            if (pre < nums[i]) nums[i-1] = pre;
+            else nums[i] = nums[i-1];
+        }
+        return count<=1;
+    }
 
+    //53-Maximum Subarray
+    //Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+    //Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+    //Output: 6
+    public int maxSubArray(int[] nums) {
+        int[] dp = new int[nums.length];
+        int max = nums[0];
+        dp[0] = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            dp[i] = Math.max(dp[i-1]+nums[i], nums[i]);
+            max = Math.max(dp[i],max);
 
+        }
+        return max;
+    }
 
+    //70-Climbing Stairs
+    //You are climbing a staircase. It takes n steps to reach the top.Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+    //Input: n = 2
+    //Output: 2
+    public int climbStairs1(int n) {
+        int[] dp = new int[n];
+        dp[0] = 1;
+        dp[1] = 1;
+        if (n == 0) return 0;
+        if (n == 1) return dp[n-1];
 
+        for (int i = 2; i <= n; i++) {
+            dp[i] = dp[i-1] + dp[i-2];
+        }
+        return dp[n];
+    }
+    public int climbStairs(int n) {
+        int dp_0 = 1;
+        int dp_1 = 1;
+        if (n == 1) return dp_1;
+        for (int i = 2; i <= n; i++) {
+            int dp_temp = dp_1;
+            dp_1 = dp_0+dp_1;
+            dp_0 = dp_temp;
+        }
+        return dp_1;
+    }
 
-        //394-Decode String
+    //198-House Robber
+    //You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+    //Input: nums = [1,2,3,1]
+    //Output: 4
+    public int rob(int[] nums) {
+        if (nums.length == 1) return nums[0];
+        if (nums.length == 2) return Math.max(nums[0],nums[1]);
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        dp[1] = Math.max(nums[0],nums[1]);
+        for (int i = 2; i<nums.length;i++) {
+            dp[i] = Math.max(dp[i-1],dp[i-2]+nums[i]);
+        }
+        return dp[nums.length-1];
+    }
+
+    //64-Minimum Path Sum
+    //Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right, which minimizes the sum of all numbers along its path.
+    //Input: grid = [[1,3,1],[1,5,1],[4,2,1]]
+    //Output: 7
+    public int minPathSum(int[][] grid) {
+        
+    }
+
+        //763-Partition Labels
+    //A string S of lowercase English letters is given. We want to partition this string into as many parts as possible so that each letter appears in at most one part, and return a list of integers representing the size of these parts.
+    //Input: S = "ababcbacadefegdehijhklij"
+    //Output: [9,7,8]
+
+    //394-Decode String
     //Given an encoded string, return its decoded string.
     //The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times. Note that k is guaranteed to be a positive integer.
     //You may assume that the input string is always valid; No extra white spaces, square brackets are well-formed, etc.

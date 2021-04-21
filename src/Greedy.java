@@ -132,5 +132,49 @@ public class Greedy {
     //A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
     //Input: s = "abc", t = "ahbgdc"
     //Output: true
-    
+    public boolean isSubsequence(String s, String t) {
+        if (s == null || t == null || s.length() > t.length()) return false;
+        if (s.length() == 0) return true;
+        int index = 0;
+        for (int i = 0; i < t.length(); i++) {
+            if (s.charAt(index) == t.charAt(i)) index++;
+            if (index == s.length()) return true;
+        }
+        return index == s.length();
+    }
+
+    //665-Non-decreasing Array
+    //Given an array nums with n integers, your task is to check if it could become non-decreasing by modifying at most one element.
+    //Input: nums = [4,2,3]
+    //Output: true
+    public boolean checkPossibility(int[] nums) {
+        int count = 0;
+        for (int i = 1; i < nums.length-1; i++) {
+            int pre = i == 1 ? 0:nums[i-2];
+            System.out.println(pre + " / " + nums[i-1] + " / " + nums[i]);
+            if (nums[i] >= nums[i-1]) continue;
+            count++;
+            if (pre < nums[i]) nums[i-1] = pre;
+            else nums[i] = nums[i-1];
+        }
+        return count<=1;
+    }
+
+    //53-Maximum Subarray
+    //Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+    //Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+    //Output: 6
+    public int maxSubArray(int[] nums) {
+        int[] dp = new int[nums.length];
+        int max = nums[0];
+        dp[0] = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            dp[i] = Math.max(dp[i-1]+nums[i], nums[i]);
+            max = Math.max(dp[i],max);
+
+        }
+        return max;
+    }
+
+
 }
