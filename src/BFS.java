@@ -54,7 +54,6 @@ public class BFS {
         q.offer(root);
         int depth = 1;
         while (!q.isEmpty()) {
-            System.out.println(q.size());
             //当前队列的所有节点向四周扩散
             int size = q.size();
             for (int i = 0; i < size; i++) {

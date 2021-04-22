@@ -1514,10 +1514,70 @@ public class LeetcodeSample {
     //Input: grid = [[1,3,1],[1,5,1],[4,2,1]]
     //Output: 7
     public int minPathSum(int[][] grid) {
+        int r = grid.length;
+        int c = grid[0].length;
+        if (r == 0 || c == 0) return 0;
+        for (int i = r-1; i >= 0; i--) {
+            for (int j = c-1; j >= 0; j--) {
+                if (i == r-1&&j == c-1) grid[i][j] = grid[i][j];
+                else if (i == r-1&&j != c-1) grid[i][j] += grid[i][j+1];
+                else if (j == c-1&&i != r-1) grid[i][j] += grid[i+1][j];
+                else grid[i][j] += Math.min(grid[i+1][j],grid[i][j+1]);
+            }
+        }
+        return grid[0][0];
+    }
+
+    //1041-Robot Bounded In Circle
+    //The robot performs the instructions given in order, and repeats them forever.Return true if and only if there exists a circle in the plane such that the robot never leaves the circle.
+    //Input: instructions = "GGLLGG"
+    //Output: true
+    public boolean isRobotBounded(String instructions) {
+        int x = 0;
+        int y = 0;
+        int head = 0;
+        char[] arr = instructions.toCharArray();
+
+        for (int time=0; time<4; time++) {
+            for (int ins = 0; ins < arr.length;ins++) {
+                if (arr[ins] == 'L') head = (head+3)%4;
+                else if (arr[ins] == 'R') head = (head+1)%4;
+                else {
+                    if (head==0) x++;
+                    else if (head==1) y--;
+                    else if (head==2) x--;
+                    else if (head==3) y++;
+                }
+            }
+        }
+        return x==0&y==0;
+    }
+
+    //200-Number of Islands
+    //Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
+    //Input: grid = [
+    //  ["1","1","1","1","0"],
+    //  ["1","1","0","1","0"],
+    //  ["1","1","0","0","0"],
+    //  ["0","0","0","0","0"]]
+    //Output: 1
+    public int numIslands(char[][] grid) {
         
     }
 
-        //763-Partition Labels
+
+
+
+
+
+
+
+    //146-LRU Cache
+    //Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
+    //Input:["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
+    //[[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
+
+    //763-Partition Labels
     //A string S of lowercase English letters is given. We want to partition this string into as many parts as possible so that each letter appears in at most one part, and return a list of integers representing the size of these parts.
     //Input: S = "ababcbacadefegdehijhklij"
     //Output: [9,7,8]

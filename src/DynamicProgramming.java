@@ -59,5 +59,23 @@ public class DynamicProgramming {
         return dp_1;
     }
 
+    //64-Minimum Path Sum
+    //Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right, which minimizes the sum of all numbers along its path.
+    //Input: grid = [[1,3,1],[1,5,1],[4,2,1]]
+    //Output: 7
+    public int minPathSum(int[][] grid) {
+        int r = grid.length;
+        int c = grid[0].length;
+        if (r == 0 || c == 0) return 0;
+        for (int i = r-1; i >= 0; i--) {
+            for (int j = c-1; j >= 0; j--) {
+                if (i == r-1&&j == c-1) grid[i][j] = grid[i][j];
+                else if (i == r-1&&j != c-1) grid[i][j] += grid[i][j+1];
+                else if (j == c-1&&i != r-1) grid[i][j] += grid[i+1][j];
+                else grid[i][j] += Math.min(grid[i+1][j],grid[i][j+1]);
+            }
+        }
+        return grid[0][0];
+    }
 
 }
