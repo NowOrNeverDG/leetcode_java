@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41db025d-eaf0-4f6e-81b4-c1059cd6b671" name="Default Changelist" comment="Update daily">
-      <change afterPath="$PROJECT_DIR$/src/AmazonInterview.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BFS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DynamicProgramming.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DynamicProgramming.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AmazonInterview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AmazonInterview.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LeetcodeSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetcodeSample.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,7 +145,7 @@
       <workItem from="1617918794237" duration="24227000" />
       <workItem from="1618266916872" duration="9933000" />
       <workItem from="1618348909999" duration="29959000" />
-      <workItem from="1618628123760" duration="47187000" />
+      <workItem from="1618628123760" duration="57023000" />
     </task>
     <servers />
   </component>
@@ -237,11 +235,11 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="123" y="65" key="new project wizard/0.25.1440.875@0.25.1440.875" timestamp="1617750117027" />
-    <state x="385" y="214" width="670" height="676" key="search.everywhere.popup" timestamp="1618112144632">
+    <state x="385" y="214" width="670" height="676" key="search.everywhere.popup" timestamp="1619145141251">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="385" y="214" width="670" height="676" key="search.everywhere.popup/0.25.1440.875/1440.25.1116.731@0.25.1440.875" timestamp="1616797083321" />
-    <state x="385" y="214" width="670" height="676" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1618112144632" />
+    <state x="385" y="214" width="670" height="676" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1619145141251" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

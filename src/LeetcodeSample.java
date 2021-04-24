@@ -1562,7 +1562,37 @@ public class LeetcodeSample {
     //  ["0","0","0","0","0"]]
     //Output: 1
     public int numIslands(char[][] grid) {
-        
+        int r = grid.length;
+        int c = grid[0].length;
+        int count = 0;
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                if (grid[i][j] == '1') {
+                    count++;
+                    helperDfs200(grid, i, j);
+                }
+            }
+        }
+        return count;
+    }
+    private void helperDfs200(char[][] grid, int r, int c) {
+        int nr = grid.length;
+        int nc = grid[0].length;
+        if (r < 0 || c < 0 || r >= nr || c >= nc || grid[r][c] == '0') { return; }
+        grid[r][c] = '0';
+        helperDfs200(grid,r-1,c);
+        helperDfs200(grid,r+1,c);
+        helperDfs200(grid,r,c-1);
+        helperDfs200(grid,r,c+1);
+    }
+
+    //42-Trapping Rain Water
+    //Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
+    //Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
+    //Output: 6
+    public int trap(int[] height) {
+        Deque<Integer> stack = new ArrayDeque<Integer>();
+
     }
 
 
