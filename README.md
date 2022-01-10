@@ -1,3 +1,3 @@
-# LeetcodeSolution-Java
+# LeetcodeSolution
 
 Daily Leecode practice solution
